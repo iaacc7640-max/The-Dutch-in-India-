@@ -6,7 +6,7 @@ const { P, cut, P_rr, P_poly, P_circ } = K;
 
 // ── set pieces for this story (cut paper) ──
 const NIGHT = '#2F3550', NIGHT2 = '#262B42';
-function nightPage(seed) { K.parchment(seed); ctx.save(); ctx.globalAlpha = 0.86; ctx.fillStyle = NIGHT; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore(); for (let i = 0; i < 30; i++) circle(rnd(i + seed) * W, rnd(i + 40 + seed) * 900, 3 + rnd(i) * 3, '#E9DCBC'); }
+function nightPage(seed) { K.parchment(seed); ctx.save(); ctx.globalAlpha = 0.86; ctx.fillStyle = NIGHT; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore(); for (let i = 0; i < 30; i++) circle(rnd(i + seed) * W, rnd(i + 40 + seed) * 560, 3 + rnd(i) * 3, '#E9DCBC'); }
 /** a timber house: x = centre, y = ground, w, h; roof colour; burning 0..1 */
 function house(x, y, w, h, wall = '#B68A5C', roof = '#7A4B33', win = 0) {
   cut(P_rr(x - w / 2, y - h, w, h, 4), wall, { shadow: 0.7, edge: 5 });
@@ -40,12 +40,15 @@ export function buildShots() {
   const cut_ = (i) => (i === 0 ? 0 : L(i) - 0.08);
   const ROW = [[90, 0], [300, 1], [510, 0], [720, 1], [930, 0]];
 
-  // 1 · 1666: London at night, a gold ribbon, one glowing window
-  add({ id: 'S01', at: 0, cam: [540, 900], zoom: 0.08, note: 'night skyline, 1666 ribbon, bakery window glows', draw(lt, d, t) {
-    nightPage(1); ROW.forEach(([x, k], i) => house(x, 1400, 190, 300 + k * 60, k ? '#8C6B4E' : '#A37A55', k ? '#5E3B28' : '#6E4430', i === 2 ? 0.6 + 0.4 * Math.sin(t * 6) : 0));
-    cut(P_rr(-300, 1400, W + 600, 800, 0), '#4A3A2E', { shadow: 0, edge: 0 });
-    K.ribbon('1666', 540, 400, eob(seg(lt, 0.1, 0.5)));
-    if (lt > d * 0.6) flame(510, 1300, eob(seg(lt, d * 0.6, d * 0.6 + 0.4)) * 0.8, t);
+  // 1 · 1666: London at night, a gold ribbon, one glowing window (16:9: a wide street, ground at y 820)
+  const ROW16 = [[150, 0], [420, 1], [690, 0], [960, 1], [1230, 0], [1500, 1], [1770, 0]];
+  add({ id: 'S01', at: 0, cam: [960, 560], zoom: 0.08, note: 'night skyline, 1666 ribbon, bakery window glows', draw(lt, d, t) {
+    nightPage(1); const pan = lerp(0, -80, eio(clamp(lt / d))); ctx.save(); ctx.translate(pan, 0);
+    ROW16.forEach(([x, k], i) => house(x, 820, 220, 300 + k * 60, k ? '#8C6B4E' : '#A37A55', k ? '#5E3B28' : '#6E4430', i === 3 ? 0.6 + 0.4 * Math.sin(t * 6) : 0));
+    if (lt > d * 0.6) flame(930, 720, eob(seg(lt, d * 0.6, d * 0.6 + 0.4)) * 0.8, t);
+    ctx.restore();
+    cut(P_rr(-300, 820, W + 600, 600, 0), '#4A3A2E', { shadow: 0, edge: 0 });
+    K.ribbon('1666', 960, 190, eob(seg(lt, 0.1, 0.5)), 90);
   } });
   cue(0.1, 'whoosh'); cue(0.15, 'pop', { gain: 0.6 });
 

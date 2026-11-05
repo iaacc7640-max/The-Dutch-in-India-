@@ -1,5 +1,5 @@
 // The Paper Atlas style sheet, drawn with the style's own kit.
-import { ctx } from './core/lib.js';
+import { ctx, W } from './core/lib.js';
 import { startBoard, panel, frame, cell, small, swatches, rules } from './core/board.js';
 import * as K from './core/kit.js';
 const { P } = K;
@@ -26,12 +26,12 @@ b = panel(590, 80, 660, 520, 2, 'PALETTE');
 const yy = swatches(b, [['PAPER', P.parch], ['INK', P.ink], ['CRIMSON', P.crimson], ['GOLD', P.gold], ['SEA', P.sea], ['LAND', P.land], ['ROYAL', P.royal], ['FOREST', P.forest]]);
 ['CRIMSON ONLY FOR ROUTES, TARGETS AND THE KEY WORD.', 'GOLD ONLY FOR DATES, CROWNS AND SEALS.', 'EVERY SHAPE HAS A PAPER EDGE AND A SOFT SHADOW.']
   .forEach((t, i) => small(t, b.x + 4, yy + 20 + i * 40, 'left', 16, '#EFE6D2'));
-ctx.save(); ctx.beginPath(); ctx.roundRect(b.x, yy + 140, b.w, 150, 14); ctx.clip(); ctx.translate(b.x, yy + 140); ctx.scale(b.w / 1080, 150 / 300); K.parchment(2); ctx.restore();
+ctx.save(); ctx.beginPath(); ctx.roundRect(b.x, yy + 140, b.w, 150, 14); ctx.clip(); ctx.translate(b.x, yy + 140); ctx.scale(b.w / W, 150 / 300); K.parchment(2); ctx.restore();
 ['king', 'queen', 'sailor', 'scholar', 'guard', 'merchant'].forEach((r, i) => cell(b.x + 55 + i * 104, yy + 262, 0.15, () => K.figure({ x: 0, y: 0, role: r }), r.toUpperCase(), 22, '#3E2C1E'));
 
 // 3 · components
 b = panel(1260, 80, 640, 520, 3, 'COMPONENTS');
-ctx.save(); ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, b.h, 14); ctx.clip(); ctx.translate(b.x, b.y); ctx.scale(b.w / 1080, b.h / 900); K.parchment(5); ctx.restore();
+ctx.save(); ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, b.h, 14); ctx.clip(); ctx.translate(b.x, b.y); ctx.scale(b.w / W, b.h / 900); K.parchment(5); ctx.restore();
 const gx = (i) => b.x + 80 + i * 158, gy = (r) => b.y + 110 + r * 205, L = '#3E2C1E';
 cell(gx(0) + 40, gy(0) - 10, 0.3, () => K.ribbon('1666', 0, 0), 'DATE RIBBON', 90, L);
 cell(gx(2), gy(0) - 10, 0.5, () => K.seal(0, 0), 'WAX SEAL', 90, L);
@@ -50,7 +50,7 @@ frame(sx(2), b.y, sw, () => { K.harbor(0.5, 560); K.figure({ x: 160, y: 1250, h:
 
 // 5 · captions
 b = panel(790, 610, 520, 456, 5, 'CAPTIONS');
-ctx.save(); ctx.beginPath(); ctx.rect(b.x, b.y, b.w, b.h - 10); ctx.clip(); ctx.translate(b.x, b.y); ctx.scale(b.w / 1080, (b.h - 10) / 800); K.parchment(9); ctx.restore();
+ctx.save(); ctx.beginPath(); ctx.rect(b.x, b.y, b.w, b.h - 10); ctx.clip(); ctx.translate(b.x, b.y); ctx.scale(b.w / W, (b.h - 10) / 800); K.parchment(9); ctx.restore();
 [[[{ txt: 'In' }, { txt: '1666,', hi: 1 }], 70], [[{ txt: 'London' }, { txt: 'burned.', hi: 1 }], 175], [[{ txt: 'The' }, { txt: 'king' }, { txt: 'fled.', hi: 1 }], 280]]
   .forEach(([w, y]) => cell(b.x + b.w / 2, b.y + y, 0.48, () => K.captionStrip(w, 0, 0), null));
 small('SERIF ON TORN PAPER · 2-4 WORDS · ONE CRIMSON WORD', b.x + b.w / 2, b.y + b.h - 26, 'center', 13, '#5A4632');

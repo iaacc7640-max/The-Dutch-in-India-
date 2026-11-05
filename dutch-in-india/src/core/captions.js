@@ -2,11 +2,11 @@
 // Each script line has "caps": "WHAT IF *YOU | SWALLOW *GUM?"  ("|" = next caption, "*" = the yellow word).
 // Without "caps", the line is chunked automatically (2-3 words, the longest word goes yellow).
 // A chunk appears 0.05 s before its first word and stays until the next chunk (or shortly after the line ends).
-import { ctx, C, clamp, lerp, seg, eob } from './lib.js';
+import { W, ctx, C, clamp, lerp, seg, eob } from './lib.js';
 import { T, lineWords } from './timing.js';
 import { captionStrip, CAPLOOK } from './kit.js';
 
-export const CAP = { y: 1400, size: 150, maxW: 900 };
+export const CAP = { y: 935, size: 68, maxW: 1500 };
 let caps = [];
 
 function autoChunks(text) {
@@ -43,5 +43,5 @@ export const captionList = () => caps;
 export function drawCaption(t) {
   const c = caps.find((c) => t >= c.s && t < c.e); if (!c) return;
   const lt = t - c.s, sc = lt < 0.18 ? lerp(0.7, 1, eob(seg(lt, 0, 0.18))) : 1;
-  captionStrip(c.words, 540, CAPLOOK.y, sc);
+  captionStrip(c.words, W / 2, CAPLOOK.y, sc);
 }

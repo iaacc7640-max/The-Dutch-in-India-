@@ -1,7 +1,7 @@
 // Frame-exact capture through headless Chrome. No npm packages (Node 22+). Run from the project folder.
 //   node tools/capture.mjs check                         boot, list shots + captions, report errors
 //   node tools/capture.mjs cues                          write data/cues.json (the sound cues, for tools/mix.py)
-//   node tools/capture.mjs sheet review/all.jpg [step=0.5] [cols=9]   contact sheet, a frame every `step` s, time-stamped
+//   node tools/capture.mjs sheet review/all.jpg [step=0.5] [cols=6] [start end]   contact sheet, a frame every `step` s, time-stamped
 //   node tools/capture.mjs frames review/full "1.2,8.4"  full-size JPEGs of those times
 //   node tools/capture.mjs video renders/out.mp4 [start end] [--draft]   the film (30 fps) with data/mix.wav if it exists
 //   node tools/capture.mjs preview                       serve the project and print a URL to watch it in a browser
@@ -18,7 +18,7 @@ const FPS = +(process.env.FPS || 30);
 const CHROME = [process.env.CHROME, '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/Applications/Chromium.app/Contents/MacOS/Chromium',
   '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge', '/usr/bin/google-chrome', '/usr/bin/google-chrome-stable', '/usr/bin/chromium',
   '/usr/bin/chromium-browser', '/snap/bin/chromium', 'C:/Program Files/Google/Chrome/Application/chrome.exe',
-  'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe'].find((p) => p && fs.existsSync(p));
+  'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe', '/opt/pw-browsers/chromium'].find((p) => p && fs.existsSync(p));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const args = process.argv.slice(2), flags = new Set(args.filter((a) => a.startsWith('--')));
 const [mode, ...rest] = args.filter((a) => !a.startsWith('--'));
@@ -41,7 +41,7 @@ async function openPage(port) {
   if (!CHROME) throw new Error('Chrome not found: install Google Chrome or set CHROME=/path/to/chrome');
   const prof = fs.mkdtempSync(path.join(os.tmpdir(), 'fs-chrome-'));
   const chrome = spawn(CHROME, ['--headless=new', '--remote-debugging-port=0', `--user-data-dir=${prof}`, '--no-first-run', '--no-default-browser-check',
-    '--hide-scrollbars', '--window-size=1080,1920', '--ignore-gpu-blocklist', '--enable-unsafe-swiftshader', ...(process.env.SOFTWARE_GL ? ['--use-angle=swiftshader'] : []), ...(process.getuid?.() === 0 ? ['--no-sandbox'] : []), '--disable-background-timer-throttling', '--disable-renderer-backgrounding', 'about:blank'], { stdio: 'ignore' });
+    '--hide-scrollbars', '--window-size=1920,1080', '--ignore-gpu-blocklist', '--enable-unsafe-swiftshader', ...(process.env.SOFTWARE_GL ? ['--use-angle=swiftshader'] : []), ...(process.getuid?.() === 0 ? ['--no-sandbox'] : []), '--disable-background-timer-throttling', '--disable-renderer-backgrounding', 'about:blank'], { stdio: 'ignore' });
   let dbg;
   for (let i = 0; i < 200 && !dbg; i++) { try { dbg = fs.readFileSync(path.join(prof, 'DevToolsActivePort'), 'utf8').split('\n')[0].trim(); } catch { await sleep(100); } }
   if (!dbg) throw new Error('Chrome did not start');
@@ -95,13 +95,14 @@ else {
       for (const t of (rest[1] || '0').split(',').map(Number)) { fs.writeFileSync(path.join(dir, `t${t.toFixed(2)}.jpg`), jpg(await P.ev(FRAME(t, 0.92)))); }
       console.log(dir);
     } else if (mode === 'sheet') {
-      const out = path.resolve(ROOT, rest[0] || 'review/all.jpg'), step = +(rest[1] || 0.5), cols = +(rest[2] || 9);
+      const out = path.resolve(ROOT, rest[0] || 'review/all.jpg'), step = +(rest[1] || 0.5), cols = +(rest[2] || 6), s0 = rest[3] != null ? +rest[3] : 0, s1 = rest[4] != null ? Math.min(+rest[4], dur) : dur;
+      const { cw, ch } = await P.ev('({ cw: document.getElementById("cv").width, ch: document.getElementById("cv").height })'); const tw = 320, th = Math.round(tw * ch / cw / 2) * 2;
       const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'fs-sheet-')); let n = 0;
-      for (let t = step / 2; t < dur; t += step) fs.writeFileSync(path.join(tmp, `f${String(n++).padStart(4, '0')}.jpg`), jpg(await P.ev(FRAME(t, 0.8, true))));
+      for (let t = s0 + step / 2; t < s1; t += step) fs.writeFileSync(path.join(tmp, `f${String(n++).padStart(4, '0')}.jpg`), jpg(await P.ev(FRAME(t, 0.8, true))));
       const rows = Math.ceil(n / cols); fs.mkdirSync(path.dirname(out), { recursive: true });
-      const r = spawnSync('ffmpeg', ['-v', 'error', '-y', '-framerate', '1', '-i', path.join(tmp, 'f%04d.jpg'), '-vf', `scale=216:384,tile=${cols}x${rows}:padding=4:color=black`, '-frames:v', '1', '-q:v', '3', out]);
+      const r = spawnSync('ffmpeg', ['-v', 'error', '-y', '-framerate', '1', '-i', path.join(tmp, 'f%04d.jpg'), '-vf', `scale=${tw}:${th},tile=${cols}x${rows}:padding=4:color=black`, '-frames:v', '1', '-q:v', '3', out]);
       fs.rmSync(tmp, { recursive: true, force: true });
-      if (r.status) throw new Error('ffmpeg: ' + r.stderr); console.log(`${out} (${n} frames, every ${step} s)`);
+      if (r.status) throw new Error('ffmpeg: ' + r.stderr); console.log(`${out} (${n} frames, every ${step} s, ${s0}-${s1.toFixed(2)} s, ${tw}x${th} thumbs)`);
     } else if (mode === 'video') {
       const out = path.resolve(ROOT, rest[0] || 'renders/video.mp4'); fs.mkdirSync(path.dirname(out), { recursive: true });
       const mix = path.join(ROOT, 'data/mix.wav'), hasMix = fs.existsSync(mix), a0 = rest[1] ? +rest[1] : 0, a1 = rest[2] ? Math.min(+rest[2], dur) : dur, n = Math.round((a1 - a0) * FPS);
