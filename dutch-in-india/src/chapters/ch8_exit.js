@@ -28,9 +28,9 @@ export default function ch8({ add, cue, at, Wd }) {
     cue(st + tr, 'rustle'); cue(st + 1.2, 'thud', { gain: 0.5 }); cue(st + 1.5, 'thud', { gain: 0.5 }); }
   // 106 · two shots: the remaining flags go; then on "handing" the trade loop un-draws and the era bar lands on 1825
   { const st = at(106), hd = Wd('handing', 106) - 0.05, e = at(107);
-    const NA = () => A.px(v, [81.8, 15.5]), NB = () => A.px(v, [128.5, -3]), NC = [960, 215];
+    const vL = A.view(66, 22, 11), NA = () => A.px(vL, [81.8, 15.5]), NB = () => A.px(vL, [128.5, -3]), NC = A.px(vL, PL.amsterdam);
     add({ id: 'C8_rest', at: st, zoom: 0.03, note: 'the last flags go', draw(lt, d, t) { A.realMap(v, { seed: 106 }); A.onLand(v, () => A.tint(v, [118, -3], 9, P.gold, 0.5)); POSTS.forEach(([k], i) => { const [x, y] = A.px(v, PL[k]); ctx.save(); ctx.globalAlpha = 1 - seg(lt, 0.2 + i * 0.1, 0.6 + i * 0.1); A.flag(x, y, 0.5, 'en', t + i, 90); ctx.restore(); }); A.tornSlip('THE REST HANDED OVER', 960, 230, eob(seg(lt, 0.2, 0.5)), 44); } });
-    add({ id: 'C8_undraw', at: hd, zoom: 0.03, note: 'the trade loop un-draws; era bar lands on 1825', draw(lt, d, t) { A.realMap(v, { seed: 106 }); ctx.save(); ctx.globalAlpha = 0.3; ctx.fillStyle = P.parch; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore(); A.tradeLoop(NA(), NB(), NC, 3 * (1 - eio(seg(lt, 0.1, d))), (hd + lt) * 0.3, [], { bend: -120, iconScale: 1.1 }); K.ribbon('1825', 760, 470, eob(seg(lt, Wd('eighteen', 106) - hd, Wd('eighteen', 106) - hd + 0.4)), 90); } });
+    add({ id: 'C8_undraw', at: hd, zoom: 0.03, note: 'the trade loop un-draws; era bar lands on 1825', draw(lt, d, t) { A.realMap(vL, { seed: 106 }); A.pin(vL, PL.amsterdam, 'AMSTERDAM', 1, { dx: 190, dy: 10 }); ctx.save(); ctx.globalAlpha = 0.3; ctx.fillStyle = P.parch; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore(); A.tradeLoop(NA(), NB(), NC, 3 * (1 - eio(seg(lt, 0.1, d))), (hd + lt) * 0.3, [], { bend: -90, iconScale: 1.0 }); K.ribbon('1825', 960, 470, eob(seg(lt, Wd('eighteen', 106) - hd, Wd('eighteen', 106) - hd + 0.4)), 90); } });
     cue(hd, 'quill', { dur: 1.6 }); cue(Wd('eighteen', 106), 'sparkle', { dur: 0.6, gain: 0.5 }); }
   // 107-108 · "They came to India for trade, not empire, and they left the same way." : the VOC ship turns and sails off right
   { const s0 = at(107), s1 = at(108);

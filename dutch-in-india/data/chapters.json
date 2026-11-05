@@ -1,5 +1,5 @@
 {
- "duration": 309.933,
+ "duration": 309.914,
  "chapters": [
   {
    "id": "CH0",
@@ -49,47 +49,47 @@
    "card": 130.97,
    "start": 130.97,
    "last": 58,
-   "end": 162.878
+   "end": 162.833
   },
   {
    "id": "CH5",
    "year": "1678",
    "title": "The Garden of Malabar",
    "first": 59,
-   "card": 162.878,
-   "start": 162.878,
+   "card": 162.833,
+   "start": 162.833,
    "last": 69,
-   "end": 194.735
+   "end": 194.69
   },
   {
    "id": "CH6",
    "year": "1741",
    "title": "The Battle of Colachel",
    "first": 70,
-   "card": 194.735,
-   "start": 194.735,
+   "card": 194.69,
+   "start": 194.69,
    "last": 87,
-   "end": 240.83
+   "end": 240.812
   },
   {
    "id": "CH7",
    "year": "1759",
    "title": "Last Stand in Bengal",
    "first": 88,
-   "card": 240.83,
-   "start": 240.83,
+   "card": 240.812,
+   "start": 240.812,
    "last": 99,
-   "end": 274.627
+   "end": 274.608
   },
   {
    "id": "CH8",
    "year": "1825",
    "title": "Exit, Quietly",
    "first": 100,
-   "card": 274.627,
-   "start": 274.627,
+   "card": 274.608,
+   "start": 274.608,
    "last": 110,
-   "end": 309.933
+   "end": 309.914
   }
  ]
 }

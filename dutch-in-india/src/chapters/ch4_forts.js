@@ -43,9 +43,13 @@ export default function ch4({ add, cue, at, Wd }) {
     cue(s0, 'sparkle', { dur: 0.6, gain: 0.5 }); cue(tk, 'whoosh', { gain: 0.5 }); cue(s2, 'slide', { dur: 1.8, gain: 0.4 }); }
   // 56 · "In 1663 they took Cochin," : Cochin harbour; the fort flag swaps
   { const st = at(56), co = Wd('cochin', 56) - st;
-    add({ id: 'C4_cochin', at: st, zoom: 0.04, note: 'Cochin harbour, fort flag swaps to the tricolour', draw(lt, d, t) { const cam = A.camAt(lt, d, { x: -50 }, { x: 50 }); SC.sky(cam, 0, 56); A.layer(cam, 0.5, () => { A.waves(t, 640, 1, 60, 8); for (let i = 0; i < 5; i++) SC.palm(1350 + i * 130, 700, 0.6, t + i); });
-      A.layer(cam, 0.85, () => { const sw = seg(lt, co, co + 0.5); ctx.save(); ctx.translate(800, 740); A.fort(0, 0, 1.0, null, t); ctx.translate(0, -186); ctx.scale(Math.max(0.05, Math.abs(Math.cos(sw * Math.PI))), 1); A.flag(0, 0, 0.9, sw < 0.5 ? 'pt' : 'voc', t, 150); ctx.restore(); A.waves(t, 760, 2, 50, 10); });
-      K.ribbon('1663', 1500, 230, eob(seg(lt, 0.1, 0.45)), 80); A.tornSlip('COCHIN', 800, 230, eob(seg(lt, co, co + 0.3)), 52); } });
+    add({ id: 'C4_cochin', at: st, zoom: 0.04, note: 'Cochin: the fort on the shore by the sea; its flag swaps to the tricolour', draw(lt, d, t) { const cam = A.camAt(lt, d, { x: -50 }, { x: 50 }); SC.sky(cam, 0, 56);
+      A.layer(cam, 0.4, () => A.waves(t, 600, 2, 60, 8));
+      A.layer(cam, 0.85, () => { K.cut(() => { ctx.beginPath(); ctx.moveTo(-400, H + 200); ctx.lineTo(-400, 690); ctx.lineTo(1150, 700); ctx.quadraticCurveTo(1300, 720, 1380, 860); ctx.lineTo(1380, H + 200); ctx.closePath(); }, '#E3CF9E', { shadow: 0.6, edge: 6 });
+        for (let i = 0; i < 4; i++) SC.palm(120 + i * 150, 700, 0.55, t + i);
+        const sw = seg(lt, co, co + 0.5); ctx.save(); ctx.translate(820, 720); A.fort(0, 0, 0.95, null, t); ctx.translate(0, -177); ctx.scale(Math.max(0.05, Math.abs(Math.cos(sw * Math.PI))), 1); A.flag(0, 0, 0.9, sw < 0.5 ? 'pt' : 'voc', t, 150); ctx.restore();
+        ctx.save(); ctx.beginPath(); ctx.rect(1300, 0, 1000, H); ctx.clip(); A.waves(t, 740, 2, 50, 10); ctx.restore(); A.indiaman(1600, 700, 0.35, Math.sin(t * 1.3) * 0.02, t); });
+      K.ribbon('1663', 1500, 230, eob(seg(lt, 0.1, 0.45)), 80); A.tornSlip('COCHIN', 820, 230, eob(seg(lt, co, co + 0.3)), 52); } });
     cue(st + 0.1, 'sparkle', { dur: 0.6, gain: 0.5 }); cue(st + co, 'whoosh', { gain: 0.5 }); cue(st, 'waves', { dur: 2.6, gain: 0.5 }); }
   // 57 · "and with it, Portugal's last Malabar forts." : each Malabar fort flips in a ripple
   { const st = at(57), mb = Wd('mala', 57) - st;

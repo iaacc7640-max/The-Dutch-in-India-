@@ -26,7 +26,7 @@ E = {
    ("and one Portuguese man.", "and *one Portuguese man.", "Names reach twenty; the candle goes out.")],
  "and the English put more and more of their effort into India.": [("and the English turned more and more to India.", "and the English | turned more and more | to *India.", None)],
  "Meanwhile the Dutch went after their old enemy.": [("Meanwhile, they went after their old enemy.", "Meanwhile, | they went after | their old *enemy.", None)],
- "As historians R. C. Mozoom-dar and his co-authors put it,": [("As R. C. Mozoom-dar and his co-authors put it,", "As R.C. *Majumdar | and his co-authors | put it,", None)],
+ "As historians R. C. Mozoom-dar and his co-authors put it,": [("As R. C. Mo-joom-daar and his co-authors put it,", "As R.C. *Majumdar | and his co-authors | put it,", None)],
  "In sixteen fifty-eight they took Naaga-putti-num from the Portuguese,": [
    ("In sixteen fifty-eight", "In *1658", "Gold ribbon 1658 over the south-east coast."),
    ("they took Naaga-putti-num from the Portuguese,", "they took *Nagapattinam | from the Portuguese,", "Pin NAGAPATTINAM; its flag swaps Portuguese to Dutch.")],
@@ -39,7 +39,7 @@ E = {
  "and it was built on Indian knowledge.": [("built on Indian knowledge.", "built on Indian *knowledge.", None, "CARD")],
  "By the seventeen-thirties, King Maar-taanda Varma of Travan-kor": [
    ("By the seventeen-thirties,", "By the *1730s,", "Map: the south-west coast, Travancore pin."),
-   ("King Maar-taanda Varma of Travan-kor", "King Marthanda *Varma | of Travancore", "Marthanda Varma (gold crown, conch emblem on forest green) standing.")],
+   ("King Maar-thaanda Varma of Travan-kor", "King Marthanda *Varma | of Travancore", "Marthanda Varma (gold crown, conch emblem on forest green) standing.")],
  "and the Dutch surrendered.": [("and soon the Dutch surrendered.", "and soon the Dutch | *surrendered.", None)],
  "Their commander, Yoo-stah-kee-us De Lan-wah, was taken prisoner,": [
    ("Their commander, Yoo-stah-kee-us De Lan-wah,", "Their commander, | Eustachius *De Lannoy,", "The cold-open two-shot again: the sword handover, now explained."),

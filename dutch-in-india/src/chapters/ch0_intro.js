@@ -1,5 +1,5 @@
 // CH0 · cold open (0:00-0:20): the beach in 1741, the surrender, the recruit, then back to Amsterdam and the title.
-import { ctx, W, H, clamp, lerp, seg, eo, eio, eob } from '../core/lib.js';
+import { ctx, W, H, TAU, clamp, lerp, seg, eo, eio, eob } from '../core/lib.js';
 import * as K from '../core/kit.js';
 import * as A from '../core/atlas.js';
 import * as SC from '../core/scenes.js';
@@ -76,25 +76,26 @@ export default function ch0({ add, cue, at, Wd }) {
     } });
     cue(st + 0.1, 'rustle'); }
 
-  // 6 · "and a very new idea:" : a blank share certificate floats down onto the canal page
+  // 6 · "and a very new idea:" : a paper spark bursts over the canal, then becomes a share certificate
   { const st = at(6), dur0 = at(7) - at(5);
-    add({ id: 'C0_idea', at: st, cam: [W / 2, H / 2], zoom: 0.04, era: 0, note: 'share certificate floats down over the canal', draw(lt, d, t) {
+    add({ id: 'C0_idea', at: st, cam: [W / 2, H / 2], zoom: 0.04, era: 0, note: 'a new idea: paper spark bursts, turns into a share certificate', draw(lt, d, t) {
       const lt5 = lt + (st - at(5)); SC.amsterdam(t, A.camAt(lt5, dur0 + 1.4, { x: -80 }, { x: 220, zoom: 1.03 }));
-      ctx.save(); ctx.globalAlpha = 0.25; ctx.fillStyle = P.ink; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore();
-      const k = eo(seg(lt, 0, 0.9)); ctx.save(); ctx.globalAlpha = clamp(lt / 0.25); ctx.translate(W / 2 + Math.sin(lt * 3) * 24 * (1 - k), lerp(330, 470, k)); ctx.rotate(Math.sin(lt * 2.4) * 0.16 * (1 - k) - 0.03); ctx.scale(lerp(0.55, 1.1, k), lerp(0.55, 1.1, k));
-      certificate(0, 0, 1, false); ctx.restore();
+      ctx.save(); ctx.globalAlpha = 0.3; ctx.fillStyle = P.ink; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore();
+      const burst = eob(seg(lt, 0, 0.45)), morph = eio(seg(lt, d * 0.55, d)); ctx.save(); ctx.translate(W / 2, 450);
+      ctx.save(); ctx.globalAlpha = 1 - morph; ctx.rotate(lt * 0.4); for (let i = 0; i < 12; i++) { ctx.rotate(TAU / 12); K.cut(K.P_poly([[0, -60 * burst], [22, -260 * burst], [-22, -260 * burst]]), i % 2 ? P.edge : '#F2C14E', { shadow: 0.3, edge: 2 }); } ctx.restore();
+      ctx.save(); ctx.globalAlpha = 1 - morph; K.cut(K.P_circ(0, 0, 90 * burst), '#F2C14E'); ctx.restore();
+      if (morph > 0) { ctx.save(); ctx.scale(morph, morph); ctx.rotate(-0.03); certificate(0, 0, 1.0, false); ctx.restore(); }
+      ctx.restore(); A.tornSlip('A NEW IDEA', W / 2, 160 + 60, eob(seg(lt, 0.2, 0.5)) * (1 - morph * 0.999), 60);
     } });
-    cue(st, 'slide', { dur: 1.0, gain: 0.5 }); }
+    cue(st, 'sparkle', { dur: 0.8, gain: 0.6 }); cue(st + 0.9, 'rustle', { gain: 0.5 }); }
 
-  // 7 · "a company that could go to war." : title. Gold ribbon 1596 → 1825, torn slip, VOC seal stamps on "war"
-  { const st = at(7), co = Wd('company', 7) - st, war = Wd('war', 7) - st;
-    add({ id: 'C0_title', at: st, cam: [W / 2, H / 2], zoom: 0.05, era: false, note: 'title: ribbon 1596 → 1825, slip TRADERS, NOT RULERS, VOC seal', draw(lt, d, t) {
-      K.parchment(31); A.layer({ x: lerp(-60, 60, lt / (d + 1.6)), y: 0, zoom: 1 }, 0.6, () => { A.waves(t, 700, 3, 50, 10); A.indiaman(lerp(300, 520, lt / (d + 1.6)), 700, 0.3, Math.sin(t * 1.3) * 0.02, t); });
-      K.ribbon('1596 – 1825', W / 2, 250, eob(seg(lt, 0, 0.4)), 84);
-      A.tornSlip('TRADERS, NOT RULERS', W / 2, 450, eob(seg(lt, co, co + 0.35)), 92);
-      A.goldSeal(1500, 450, lt > war ? lerp(1.6, 0.85, eo(seg(lt, war, war + 0.15))) : 0);
+  // 7 · "a company that could go to war." : the CH1 card itself ("1596: A Company That Could Go to War") turns in on
+  //     these words; the card shot in the pause after continues it. "Traders, Not Rulers" now only closes the film.
+  { const st = at(7);
+    add({ id: 'C0_card', at: st, cam: [W / 2, H / 2], zoom: 0.02, era: false, note: 'card turns in: 1596, A Company That Could Go to War', draw(lt, d, t) {
+      SC.amsterdam(t, { x: 220, y: 0, zoom: 1.03 }); A.chapterCard(lt, 1596, 'A Company That Could Go to War');
     } });
-    cue(st, 'whoosh', { gain: 0.4 }); cue(st + co, 'pop', { gain: 0.6 }); cue(st + war, 'thud', { gain: 0.8 }); }
+    cue(st, 'rustle'); cue(st + 0.75, 'thud', { gain: 0.7 }); }
 }
 
 /** a share certificate on parchment: ruled lines, a name line, the VOC seal (sealed = gold seal shown) */

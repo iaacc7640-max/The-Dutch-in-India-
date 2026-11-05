@@ -42,9 +42,9 @@ export default function ch1({ add, cue, at, Wd }) {
   // 9 · "Cornelis de Houtman's ships reached Java," : the route draws; Houtman inset
   { const st = at(9);
     add({ id: 'C1_route', at: st, zoom: 0.03, note: 'route Amsterdam > Cape > Java draws; Houtman inset', draw(lt, d, t) {
-      const v = VIEWS.world; A.realMap(v, { seed: 8 }); A.pin(v, PL.amsterdam, 'AMSTERDAM', 1, { dy: -50 });
+      const v = VIEWS.world; A.realMap(v, { seed: 8 }); A.pin(v, PL.amsterdam, 'AMSTERDAM', 1, { dx: 0, dy: 70 });
       const hd = A.route(v, ROUTE, eio(seg(lt, 0.1, d + 0.3)), 0); A.indiaman(hd[0], hd[1] - 6, 0.12, 0, t);
-      A.person({ x: 230, y: 840, h: 360, who: 'houtman', dir: 1, arm: 30 }); A.tornSlip('CORNELIS DE HOUTMAN', 300, 160, eob(seg(lt, 0.3, 0.6)), 36);
+      A.person({ x: 230, y: 840, h: 360, who: 'houtman', dir: 1, arm: 30 }); A.tornSlip('CORNELIS DE HOUTMAN', 300, 330, eob(seg(lt, 0.3, 0.6)), 36);
     } });
     cue(st + 0.1, 'quill', { dur: 2.4 }); }
   // 10 · "and the Dutch had their own route to the spices." : zoom on Java; ship at BANTAM; the Moluccas glow
@@ -57,36 +57,37 @@ export default function ch1({ add, cue, at, Wd }) {
       A.pin(v, PL.amboyna, 'SPICE ISLANDS', eob(seg(lt, sp, sp + 0.3)), { dy: -60 });
     } });
     cue(st + 0.8, 'pop', { gain: 0.5 }); cue(st + sp, 'sparkle', { dur: 0.8, gain: 0.5 }); }
-  // 11 · "Back home, they were fighting Spain for independence," : Europe; Dutch flag faces the Spanish flag
+  // 11 · "Back home, they were fighting Spain for independence," : Europe map; Dutch and Spanish armies face off (no clash)
   { const st = at(11), sp = Wd('spain', 11) - st;
-    add({ id: 'C1_spain', at: st, zoom: 0.04, note: 'Europe: Dutch tricolour faces Spain', draw(lt, d, t) {
-      const v = vEurope; A.realMap(v, { seed: 11 });
-      const [nx, ny] = A.px(v, [5.3, 52.2]), [sx, sy] = A.px(v, [-3.7, 40.4]);
-      A.flag(nx, ny + 20, eob(seg(lt, 0.1, 0.4)) * 1.0, 'voc', t, 120); A.flag(sx, sy + 20, eob(seg(lt, sp, sp + 0.3)) * 1.0, 'spain', t, 120);
-      if (lt > sp + 0.3) { ctx.save(); ctx.setLineDash([16, 14]); line([[nx - 20, ny + 60], [sx + 60, sy - 160]], P.crimson, 7); ctx.restore(); }
-      A.tornSlip('INDEPENDENCE?', 1500, 470, eob(seg(lt, sp + 0.4, sp + 0.7)), 52);
+    add({ id: 'C1_spain', at: st, zoom: 0.04, note: 'Europe: Dutch and Spanish armies face off (stand-off)', draw(lt, d, t) {
+      const v = vEurope; A.realMap(v, { seed: 11 }); const [nx, ny] = A.px(v, [5.3, 52.2]), [sx, sy] = A.px(v, [-3.7, 40.4]);
+      const k1 = eo(seg(lt, 0.1, 1.2)), k2 = eo(seg(lt, sp, sp + 1.0));
+      A.army(lerp(nx + 120, nx + 220, k1), lerp(ny + 60, ny + 200, k1), 8, 'dutchSoldier', 1, 0.62, 'voc', t);
+      A.army(lerp(sx + 60, sx + 260, k2), lerp(sy + 40, sy - 60, k2), 8, 'spanishSoldier', -1, 0.62, 'spain', t + 1);
+      if (lt > sp + 0.8) A.tornSlip('INDEPENDENCE?', 1450, 300, eob(seg(lt, sp + 0.8, sp + 1.1)), 52);
     } });
-    cue(st + 0.1, 'pop', { gain: 0.5 }); cue(st + sp, 'pop'); }
-  // 12 · "and Spain now ruled Portugal too," : the Spanish crown drops onto the Portuguese crown
+    cue(st + 0.1, 'tock', { gain: 0.4 }); cue(st + sp, 'tock', { gain: 0.4 }); cue(st + sp + 0.4, 'tock', { gain: 0.4 }); }
+  // 12 · "and Spain now ruled Portugal too," : Portugal's throne; the Spanish crown takes the seat; flags both sides
   { const st = at(12), po = Wd('portugal', 12) - st;
-    add({ id: 'C1_crowns', at: st, zoom: 0.05, note: 'Spanish crown drops onto the Portuguese crown', draw(lt, d, t) {
-      K.parchment(12); crown(W / 2, 720, 1.4, 'pt'); A.tornSlip('PORTUGAL', W / 2, 800, 1, 40);
-      const k = eo(seg(lt, po - 0.5, po + 0.1)); crown(W / 2, lerp(150, 470, k), 1.2 * clamp(k * 4), 'es'); if (k > 0.9) A.tornSlip('SPAIN', W / 2, 520, 1, 40);
+    add({ id: 'C1_crowns', at: st, zoom: 0.05, note: "Spain takes Portugal's throne; Spanish and Portuguese flags", draw(lt, d, t) {
+      K.hall(); ctx.save(); ctx.globalAlpha = 0.3; ctx.fillStyle = P.parch; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore();
+      A.throne(W / 2, 800, 1.0); A.flag(560, 800, 1.3, 'pt', t, 360); A.flag(1360, 800, 1.3 * eob(seg(lt, po - 0.3, po + 0.1)), 'spain', t + 1, 360);
+      const k = eo(seg(lt, po - 0.5, po + 0.2)); crown(W / 2 + k * 260, 560 - k * 40, 0.75 * (1 - k * 0.3), 'pt'); crown(W / 2, lerp(120, 540, k), 0.85 * clamp(k * 4), 'es');
+      A.tornSlip('PORTUGAL', 560, 230, 1, 40); A.tornSlip('SPAIN', 1360, 230, eob(seg(lt, po - 0.3, po)), 40);
     } });
-    cue(st + po + 0.1, 'thud', { gain: 0.7 }); }
-  // 13 · "so hurting the Portuguese in Asia" : an orange paper fist knocks a coin off the stacked crowns
-  { const st = at(13), hit = Wd('portuguese', 13) - st;
-    add({ id: 'C1_fist', at: st, zoom: 0.06, note: 'orange fist knocks a coin off the crowns', draw(lt, d, t) {
-      K.parchment(13); crown(W / 2, 720, 1.4, 'pt'); crown(W / 2, 470, 1.2, 'es');
-      const fk = eob(seg(lt, hit - 0.3, hit)); fist(lerp(-200, 560, fk), 560, 1.1);
-      const ck = seg(lt, hit, hit + 0.9); const cx = lerp(1060, 1600, ck), cy = 560 - Math.sin(ck * Math.PI) * 300 + ck * 120; A.icon('coins', ck > 0 ? cx : 1060, ck > 0 ? cy : 560, 1.4);
-      if (lt > hit) A.tornSlip('ASIA', 1600, 230, eob(seg(lt, hit + 0.2, hit + 0.5)), 48);
-    } });
-    cue(st + hit, 'slam', { gain: 0.5 }); cue(st + hit + 0.6, 'clink'); }
-  // 14 · "was business and revenge at once." : ledger PROFIT / REVENGE, both ticked
-  { const st = at(14), b = Wd('business', 14) - st, r = Wd('revenge', 14) - st;
-    add({ id: 'C1_ledger', at: st, zoom: 0.05, note: 'ledger PROFIT / REVENGE, both ticked', draw(lt, d, t) { K.parchment(14); ledgerPage(W / 2, 470, 1.1, ['PROFIT', 'REVENGE'], [seg(lt, b, b + 0.4), seg(lt, r, r + 0.4)]); } });
-    cue(st + b, 'quill', { dur: 0.4 }); cue(st + r, 'quill', { dur: 0.4 }); }
+    cue(st + po + 0.2, 'thud', { gain: 0.7 }); }
+  // 13-14 · "so hurting the Portuguese in Asia was business and revenge at once." : Asia map; Dutch and Portuguese armies
+  //          face off; then PROFIT and REVENGE slips pin over them
+  { const s0 = at(13), s1 = at(14), b = Wd('business', 14), r = Wd('revenge', 14), vAsia = A.view(92, 8, 22);
+    const asia = (T0, t) => { A.realMap(vAsia, { seed: 13 }); const [ix, iy] = A.px(vAsia, [76.3, 10]), [jx, jy] = A.px(vAsia, [106, -6]);
+      const k1 = eo(seg(T0, s0 + 0.1, s0 + 1.0)), k2 = eo(seg(T0, Wd('portuguese', 13), Wd('portuguese', 13) + 0.9));
+      A.army(lerp(jx - 40, jx - 230, k1), lerp(jy - 10, jy - 120, k1), 8, 'dutchSoldier', -1, 0.6, 'voc', t);
+      A.army(lerp(ix + 40, ix + 230, k2), lerp(iy + 20, iy + 40, k2), 8, 'ptSoldier', 1, 0.6, 'pt', t + 1);
+      A.tornSlip('ASIA', 1500, 250, eob(seg(T0, s0 + 0.2, s0 + 0.5)), 52); };
+    add({ id: 'C1_asia', at: s0, zoom: 0.03, note: 'Asia map: Dutch and Portuguese armies face off (stand-off)', draw(lt, d, t) { asia(s0 + lt, t); } });
+    add({ id: 'C1_motives', at: s1, cam: [960, 520], zoom: 0.06, note: 'same map: PROFIT and REVENGE slips pin on', draw(lt, d, t) { const T0 = s1 + lt; asia(T0, t);
+      A.tornSlip('PROFIT', 760, 300, eob(seg(T0, b, b + 0.3)), 64, P.crimson, -0.04); A.tornSlip('REVENGE', 1180, 300, eob(seg(T0, r, r + 0.3)), 64, P.crimson, 0.04); } });
+    cue(s0 + 0.1, 'tock', { gain: 0.4 }); cue(Wd('portuguese', 13), 'tock', { gain: 0.4 }); cue(b, 'pop'); cue(r, 'pop'); }
   // 15 · "In 1602, the Dutch government" : Amsterdam, gold ribbon 1602; the era bar steps to 1602
   { const st = at(15);
     add({ id: 'C1_1602', at: st, zoom: 0.04, era: [0, 1, 0.1, 0.9], note: 'Amsterdam, ribbon 1602, States-General slip', draw(lt, d, t) {

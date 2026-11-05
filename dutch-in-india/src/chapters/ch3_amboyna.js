@@ -38,17 +38,31 @@ export default function ch3({ add, cue, at, Wd }) {
     add({ id: 'C3_letter', at: st, zoom: 0.05, note: 'letter with a broken seal, candlelight', draw(lt, d, t) { letter(t, eo(seg(lt, 0.4, 0.8))); } });
     add({ id: 'C3_plot', at: st2, zoom: 0.07, note: "slip 'PLOT?' on the letter", draw(lt, d, t) { letter(t, 1); A.tornSlip('PLOT?', 1260, 300, eob(seg(lt, pl, pl + 0.3)), 80, P.crimson, 0.05); } });
     cue(st + 0.4, 'slam', { gain: 0.3 }); cue(st2 + pl, 'pop'); }
-  // 41 · "After confessions taken under torture," : a closed door at night, one candle (nothing else shown)
+  // 41 · "After confessions taken under torture," : two prisoners sit with bound hands; an official writes CONFESSION and
+  //       they sign. (Symbolic, chosen in review: no torture shown.)
   { const st = at(41);
-    add({ id: 'C3_door', at: st, cam: [W / 2, 500], zoom: 0.08, note: 'closed door at night, one candle', draw(lt, d, t) { K.parchment(42); K.cut(K.P_rr(-300, -300, W + 600, 1100, 0), '#8C7A62', { shadow: 0, edge: 0 }); K.cut(K.P_rr(760, 200, 400, 640, 10), '#5E3B28'); for (let i = 0; i < 4; i++) K.cut(K.P_rr(790 + i * 92, 230, 70, 580, 4), '#6E4430', { shadow: 0, edge: 3 }); K.cut(K.P_circ(1110, 540, 16), P.ink, { shadow: 0, edge: 2 }); K.cut(K.P_rr(-300, 840, W + 600, 300, 0), '#4A3A2E', { shadow: 0, edge: 0 }); A.nightWash(0.9); A.candle(520, 800, 0.9, 1, t); } });
-    cue(st, 'whoosh', { gain: 0.3 }); }
-  // 42-44 · the ledger of twenty names; the guard; the candle goes out
+    add({ id: 'C3_confess', at: st, cam: [W / 2, 500], zoom: 0.06, note: 'prisoners with bound hands sign a CONFESSION (symbolic, no harm shown)', draw(lt, d, t) {
+      nightRoom(t); A.candle(1650, 800, 0.8, 1, t);
+      for (const [x, who] of [[440, 'factor'], [700, 'samurai']]) { A.person({ x, y: 840, h: 430, who, dir: 1, arm: 30, prop: null }); ctx.strokeStyle = '#C9A86A'; ctx.lineWidth = 8; ctx.beginPath(); ctx.ellipse(x + 40, 840 - 430 * 0.62, 38, 14, 0.3, 0, TAU); ctx.stroke(); }
+      K.cut(K.P_rr(980, 640, 520, 200, 8), '#7A5636'); A.person({ x: 1420, y: 840, h: 460, who: 'envoy', dir: -1, arm: 60 });
+      ctx.save(); ctx.translate(1150, 600); ctx.rotate(-0.04); K.cut(K.P_rr(-160, -120, 320, 220, 4), '#E9DCBC'); ctx.font = '700 36px Caladea'; ctx.fillStyle = P.ink; ctx.textAlign = 'center'; ctx.fillText('CONFESSION', 0, -70);
+      ctx.strokeStyle = 'rgba(62,44,30,0.7)'; ctx.lineWidth = 4; for (let i = 0; i < 3; i++) { const k = seg(lt, 0.3 + i * 0.4, 0.7 + i * 0.4); ctx.beginPath(); ctx.moveTo(-120, -20 + i * 36); ctx.lineTo(-120 + 240 * k, -20 + i * 36); ctx.stroke(); } ctx.restore();
+      A.nightWash(0.35); A.tornSlip('CONFESSIONS UNDER TORTURE', W / 2, 220, eob(seg(lt, 0.3, 0.6)), 44);
+    } });
+    cue(st, 'whoosh', { gain: 0.3 }); cue(st + 0.3, 'quill', { dur: 1.3 }); }
+  // 42-44 · three groups appear with their counts as named; each fades to an ink silhouette; the candle goes out
   { const s1 = at(42), s2 = at(43), s3 = at(44), e = at(45);
-    const cnt = (T0) => (T0 < s2 ? 10 * seg(T0, Wd('ten', 42), s2) : T0 < s3 ? 10 + 9 * seg(T0, Wd('nine', 43), s3) : 19 + seg(T0, Wd('one', 44), Wd('one', 44) + 0.5));
-    add({ id: 'C3_names10', at: s1, zoom: 0.04, note: 'ledger of names under navy wash: ten ink in', draw(lt, d, t) { nightRoom(t); names(W / 2, 520, 0.95, cnt(s1 + lt)); A.candle(1600, 820, 0.8, 1, t); A.tornSlip('10 ENGLISH', 330, 330, eob(seg(lt, Wd('ten', 42) - s1, Wd('ten', 42) - s1 + 0.3)), 44); } });
-    add({ id: 'C3_guard', at: s2, zoom: 0.05, note: 'Japanese soldier standing guard (far, dim); names continue', draw(lt, d, t) { nightRoom(t); A.person({ x: 1640, y: 820, h: 420, who: 'samurai', dir: -1, arm: 4 }); names(820, 520, 0.95, cnt(s2 + lt)); A.nightWash(0.3); A.tornSlip('9 JAPANESE', 330, 330, eob(seg(lt, 0.1, 0.4)), 44); } });
-    add({ id: 'C3_candle', at: s3, cam: [1500, 600], zoom: 0.08, note: 'names reach twenty; the candle goes out', draw(lt, d, t) { const T0 = s3 + lt, out = Wd('man', 44) + 0.3; nightRoom(t); names(780, 520, 0.95, cnt(T0)); A.candle(1500, 820, 1.0, T0 < out ? 1 : 0, t); if (T0 > out) A.nightWash(0.4 * seg(T0, out, out + 0.6)); A.tornSlip('1 PORTUGUESE', 330, 330, eob(seg(lt, 0.1, 0.4)), 44); } });
-    for (let i = 0; i < 10; i++) cue(Wd('ten', 42) + i * 0.08, 'quill', { dur: 0.08, gain: 0.5 }); cue(Wd('man', 44) + 0.3, 'inhale', { dur: 0.5, gain: 0.4 }); }
+    const G3 = [['factor', 10, '10 ENGLISH', Wd('ten', 42), 360], ['samurai', 9, '9 JAPANESE', Wd('nine', 43), 980], ['portuguese', 1, '1 PORTUGUESE', Wd('one', 44), 1560]];
+    const groups = (T0, t) => { nightRoom(t);
+      G3.forEach(([who, n, label, tw0, cx], g) => { const tw = g === 0 ? Math.min(tw0, s1 + 0.15) : tw0; if (T0 < tw - 0.1) return; const fade = seg(T0, (G3[g + 1] ? G3[g + 1][3] : Wd('man', 44) + 0.2) - 0.3, (G3[g + 1] ? G3[g + 1][3] : Wd('man', 44) + 0.2) + 0.4);
+        for (let i = 0; i < n; i++) { const k = eob(seg(T0, tw + i * 0.05, tw + 0.25 + i * 0.05)); if (k <= 0) continue; const col = i % 5, row = Math.floor(i / 5), x = cx + (col - (Math.min(n, 5) - 1) / 2) * 70 + row * 30, y = 700 + row * 90;
+          ctx.save(); ctx.globalAlpha = 1 - 0.75 * fade; ctx.translate(x, y); ctx.scale(k, k); A.person({ x: 0, y: 0, h: 190, who, dir: 1, arm: 4, prop: null }); ctx.restore(); }
+        A.tornSlip(label, cx, 340, eob(seg(T0, tw0, tw0 + 0.3)), 52, fade > 0.5 ? P.ink : P.crimson); });
+      const out = Wd('man', 44) + 0.3; A.candle(1780, 830, 0.6, T0 < out ? 1 : 0, t); if (T0 > out) A.nightWash(0.3 * seg(T0, out, out + 0.6)); };
+    add({ id: 'C3_english', at: s1, zoom: 0.04, note: '10 ENGLISH appear, then fade to silhouettes', draw(lt, d, t) { groups(s1 + lt, t); } });
+    add({ id: 'C3_japanese', at: s2, cam: [980, 600], zoom: 0.06, note: '9 JAPANESE appear', draw(lt, d, t) { groups(s2 + lt, t); } });
+    add({ id: 'C3_portuguese', at: s3, cam: [1300, 600], zoom: 0.06, note: '1 PORTUGUESE; all fade; the candle goes out', draw(lt, d, t) { groups(s3 + lt, t); } });
+    cue(Wd('ten', 42), 'pop', { gain: 0.4 }); cue(Wd('nine', 43), 'pop', { gain: 0.4 }); cue(Wd('one', 44), 'pop', { gain: 0.4 }); cue(Wd('man', 44) + 0.3, 'inhale', { dur: 0.5, gain: 0.4 }); }
   // 45 · "It ended any hope of the two companies working together." : a paper handshake tears in two
   { const st = at(45), tr = Wd('hope', 45) - st;
     add({ id: 'C3_tear', at: st, zoom: 0.05, note: 'paper handshake tears in two', draw(lt, d, t) { K.parchment(45); const k = eo(seg(lt, tr, tr + 0.8));

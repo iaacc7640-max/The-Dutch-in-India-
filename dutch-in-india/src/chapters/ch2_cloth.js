@@ -50,10 +50,10 @@ export default function ch2({ add, cue, at, Wd, L, Le }) {
       const cam = A.camAt(lt, d, { x: -40 }, { x: 40, zoom: 1.04 });
       SC.coromandel(t, cam);
       A.layer(cam, 0.85, () => { const k = eob(seg(lt, f - 0.5, f + 0.1)); ctx.save(); ctx.translate(760, 800); ctx.scale(lerp(0.6, 1, k), k); A.fort(0, 0, 1.0, 'voc', t); ctx.restore(); });
-      A.layer(cam, 1, () => { K.cut(K.P_rr(1260, 640, 320, 170, 10), '#7A5636'); coinStack(1420, 645, 8, lt, c); });
+      A.layer(cam, 1, () => mint(1400, 800, lt, c, t));
       A.tornSlip('PULICAT', 760, 250, eob(seg(lt, 0, 0.3)), 52);
     } });
-    cue(st, 'whoosh', { gain: 0.4 }); cue(st + f, 'thud', { gain: 0.5 }); for (let i = 0; i < 8; i++) cue(st + c + i * 0.22 + 0.22, 'clink', { gain: 0.6 }); }
+    cue(st, 'whoosh', { gain: 0.4 }); cue(st + f, 'thud', { gain: 0.5 }); for (let i = 0; i < 4; i++) { cue(st + c + i * 0.45 + 0.18, 'thud', { gain: 0.45 }); cue(st + c + i * 0.45 + 0.3, 'clink', { gain: 0.6 }); } }
 
   // 26 · "Pulicat alone may have had" : a Coromandel weaver at a handloom under a thatched shed
   { const st = at(26);
@@ -100,38 +100,54 @@ export default function ch2({ add, cue, at, Wd, L, Le }) {
     } });
     cue(st, 'slide', { dur: 1.5, gain: 0.4 }); cue(st + 1.0, 'pop', { gain: 0.5 }); for (let i = 0; i < 5; i++) cue(st + cl + i * 0.14 + 0.35, 'plop', { gain: 0.4 }); }
 
-  // 30-35 · THE TRADE LOOP on the wide map: India left, Spice Islands right, Amsterdam top
-  const v = VIEWS.wide, NA = () => A.px(v, [81.8, 15.5]), NB = () => A.px(v, [128.5, -3]), NC = [960, 215];
-  const t30 = at(30), t32 = at(32), t33 = at(33);
+  // 30-32 · THE TRADE LOOP on a map that shows Amsterdam where it really is: India -> Spice Islands -> Amsterdam -> India
+  const v = A.view(66, 22, 11), NA = () => A.px(v, [81.8, 15.5]), NB = () => A.px(v, [128.5, -3]), NC = A.px(v, PL.amsterdam);
+  const t30 = at(30), t32 = at(32);
   const legP = (t) => (t < t30 ? 0 : t < at(31) ? 0.15 + 0.85 * eio(seg(t, Wd('buy', 30), at(31) - 0.1)) : t < t32 ? 1 + eio(seg(t, Wd('trade', 31), at(32) - 0.1)) : 2 + eio(seg(t, Wd('sell', 32), Wd('europe', 32) + 0.4)));
-  const phase = (t) => 0.32 * Math.max(0, t - (Wd('europe', 32) + 0.4)) + 0.3 * Math.max(0, t - Wd('indigo', 33)) + 0.35 * Math.max(0, t - Wd('opium', 35));
-  const GOODS = [['indigo', Wd('indigo', 33)], ['silk', Wd('silk', 33)], ['saltpetre', Wd('saltpetre', 34)], ['opium', Wd('opium', 35)], ['rice', Wd('rice', 35)]];
-  const loopShot = (i, id, note, camA, camB, extra, st0) => add({ id, at: st0 ?? at(i), zoom: 0.02, note, draw(lt, d, t) {
-    const T0 = (st0 ?? at(i)) + lt; const cam = A.camAt(lt, d, camA, camB);
+  const phase = (t) => 0.32 * Math.max(0, t - (Wd('europe', 32) + 0.4));
+  const loopShot = (i, id, note, camA, camB, extra) => add({ id, at: at(i), zoom: 0.02, note, draw(lt, d, t) {
+    const T0 = at(i) + lt; const cam = A.camAt(lt, d, camA, camB);
     A.layer(cam, 1, () => {
       A.realMap(v, { seed: 30 }); ctx.save(); ctx.globalAlpha = 0.3; ctx.fillStyle = P.parch; ctx.fillRect(-300, -300, W + 600, H + 600); ctx.restore();
       A.onLand(v, () => { A.tint(v, [129, -3], 4, P.gold, 0.35); });
-      A.pin(v, [81.8, 15.5], 'COROMANDEL', 1, { dx: -150, dy: 20 }); A.pin(v, [128.5, -3], 'SPICE ISLANDS', 1, { dx: 0, dy: 70 });
-      K.slip('TO AMSTERDAM', NC[0], NC[1] - 50, 1, -0.02, 34);
-      const goods = GOODS.filter(([, tt]) => T0 > tt).map(([k]) => ({ k, s: 0.75 }));
-      A.tradeLoop(NA(), NB(), NC, legP(T0), phase(T0), goods, { bend: -120, iconScale: 1.15 });
+      A.pin(v, [81.8, 15.5], 'COROMANDEL', 1, { dx: -160, dy: 40 }); A.pin(v, [128.5, -3], 'SPICE ISLANDS', 1, { dx: 0, dy: -70 }); A.pin(v, PL.amsterdam, 'AMSTERDAM', 1, { dx: 190, dy: 10 });
+      A.tradeLoop(NA(), NB(), NC, legP(T0), phase(T0), [], { bend: -90, iconScale: 1.0 });
       if (extra) extra(lt, d, t, T0);
     });
   } });
-  loopShot(30, 'C2_loop1', 'TRADE LOOP: leg 1 India to Spice Islands, cloth', { x: -120, zoom: 1.1 }, { x: 0, zoom: 1.05 });
-  loopShot(31, 'C2_loop2', 'TRADE LOOP: leg 2 to Amsterdam, spices', { x: 80, y: -20, zoom: 1.08 }, { x: 0, y: -40, zoom: 1.06 }, (lt) => {
+  loopShot(30, 'C2_loop1', 'TRADE LOOP: leg 1 India to Spice Islands, cloth', { x: 120, y: 60, zoom: 1.25 }, { x: 160, y: 80, zoom: 1.2 });
+  loopShot(31, 'C2_loop2', 'TRADE LOOP: leg 2 Spice Islands to Amsterdam, spices', { x: 60, y: 0, zoom: 1.05 }, { x: 0, y: 0, zoom: 1.0 }, (lt) => {
     const n = Wd('nutmeg', 31) - at(31), c = Wd('cloves', 31) - at(31), p = Wd('pepper', 31) - at(31);
-    [['nutmeg', n], ['clove', c], ['pepper', p]].forEach(([k, tt], j) => A.icon(k, 1380 + j * 120, 640, eob(seg(lt, tt, tt + 0.3)) * 1.2));
+    [['nutmeg', n], ['clove', c], ['pepper', p]].forEach(([k, tt], j) => A.icon(k, 1500 + j * 110, 640, eob(seg(lt, tt, tt + 0.3)) * 1.1));
   });
-  loopShot(32, 'C2_loop3', 'TRADE LOOP closes with coins; loop turns', { x: -40, y: -30, zoom: 1.05 }, { x: 0, y: 0, zoom: 1.0 });
-  loopShot(33, 'C2_loop4', 'TRADE LOOP speeds up: indigo, silk', { x: 0, zoom: 1.0 }, { x: -60, zoom: 1.04 }, (lt, d, t, T0) => A.tornSlip('INDIGO · SILK (BENGAL)', 520, 760, eob(seg(T0, Wd('indigo', 33), Wd('indigo', 33) + 0.3)), 40));
-  loopShot(33, 'C2_loop4b', 'TRADE LOOP: silk from Bengal', { x: -60, y: -30, zoom: 1.1 }, { x: -20, y: -10, zoom: 1.06 }, (lt, d, t, T0) => A.tornSlip('INDIGO · SILK (BENGAL)', 520, 760, 1, 40), Wd('silk', 33) - 0.05);
-  loopShot(34, 'C2_loop5', 'TRADE LOOP: saltpetre from Bihar', { x: -60, y: 0, zoom: 1.04 }, { x: -100, y: -20, zoom: 1.08 }, (lt, d, t, T0) => A.tornSlip('SALTPETRE (BIHAR)', 520, 760, eob(seg(T0, Wd('saltpetre', 34), Wd('saltpetre', 34) + 0.3)), 40));
-  loopShot(35, 'C2_loop6', 'TRADE LOOP at full speed: opium, rice', { x: -100, y: -20, zoom: 1.08 }, { x: 0, y: 0, zoom: 1.0 }, (lt, d, t, T0) => A.tornSlip('OPIUM · RICE (GANGA VALLEY)', 560, 760, eob(seg(T0, Wd('opium', 35), Wd('opium', 35) + 0.3)), 40));
+  loopShot(32, 'C2_loop3', 'TRADE LOOP closes: coins back to India; loop turns', { x: -40, y: -20, zoom: 1.05 }, { x: 0, y: 0, zoom: 1.0 });
   cue(t30, 'whoosh', { gain: 0.4 }); cue(Wd('buy', 30), 'quill', { dur: 1.6 }); cue(Wd('trade', 31), 'quill', { dur: 1.6 }); cue(Wd('sell', 32), 'quill', { dur: 1.0 }); cue(Wd('europe', 32) + 0.4, 'clink', { gain: 0.6 });
-  for (const [, tt] of GOODS) cue(tt, 'pop', { gain: 0.5 });
+
+  // 33-35 · the goods, pinned where the voice names them on a map of India, each riding to the Coromandel coast
+  const vI = A.view(82, 20, 34), PORT = [81.13, 16.17];
+  const GOODS = [['indigo', 'INDIGO · YAMUNA VALLEY', [78.0, 27.2], Wd('indigo', 33), { dx: -230, dy: -10 }], ['silk', 'SILK · BENGAL', [88.8, 23.6], Wd('silk', 33), { dx: 200, dy: 0 }],
+    ['saltpetre', 'SALTPETRE · BIHAR', [85.3, 25.6], Wd('saltpetre', 34), { dx: 120, dy: -70 }], ['opium', 'OPIUM · GANGA VALLEY', [82.9, 25.2], Wd('opium', 35), { dx: -250, dy: 50 }], ['rice', 'RICE · GANGA VALLEY', [83.6, 24.9], Wd('rice', 35), { dx: 210, dy: -10 }]];
+  const goodsShot = (i, id, note, camA, camB) => add({ id, at: at(i), zoom: 0.02, note, draw(lt, d, t) { const T0 = at(i) + lt, cam = A.camAt(lt, d, camA, camB);
+    A.layer(cam, 1, () => { A.realMap(vI, { seed: 33 }); A.pin(vI, PORT, 'TO THE SPICE ISLANDS', 1, { dx: 270, dy: 40 });
+      GOODS.forEach(([k, label, ll, tw, o]) => { if (T0 < tw - 0.05) return; const s = eob(seg(T0, tw - 0.05, tw + 0.25)); A.pin(vI, ll, label, s, o); const a = A.px(vI, ll), b = A.px(vI, PORT);
+        ctx.save(); ctx.setLineDash([4, 14]); K.dashedRoute([a, [(a[0] + b[0]) / 2 + 40, (a[1] + b[1]) / 2], b], seg(T0, tw + 0.2, tw + 1.2)); ctx.restore();
+        const u = ((T0 - tw) * 0.45) % 1; if (T0 > tw + 1.2) A.icon(k, lerp(a[0], b[0], u), lerp(a[1], b[1], u), 0.8); else A.icon(k, a[0] + 70, a[1] - 10, s * 0.9); }); });
+  } });
+  goodsShot(33, 'C2_goods1', 'India map: INDIGO (Yamuna valley), SILK (Bengal) pinned as named', { x: -40, y: 0, zoom: 1.05 }, { x: 0, y: -20, zoom: 1.1 });
+  goodsShot(34, 'C2_goods2', 'India map: SALTPETRE (Bihar) pinned', { x: 60, y: -40, zoom: 1.2 }, { x: 80, y: -60, zoom: 1.25 });
+  goodsShot(35, 'C2_goods3', 'India map: OPIUM and RICE (Ganga valley) pinned', { x: 20, y: -40, zoom: 1.15 }, { x: 0, y: 0, zoom: 1.0 });
+  for (const [, , , tw] of GOODS) cue(tw, 'pop', { gain: 0.5 });
 }
 
+/** the Pulicat mint: an anvil with a die; a paper hammer strikes on a beat and each strike pops out a stamped copper coin */
+function mint(x, y, lt, c, t) {
+  K.cut(K.P_rr(x - 120, y - 150, 240, 150, 10), '#5E4A3A'); K.cut(K.P_poly([[x - 170, y - 150], [x + 170, y - 150], [x + 130, y - 200], [x - 150, y - 200]]), '#4A3A2E');
+  const n = lt < c ? 0 : Math.floor((lt - c) / 0.45) + 1, ph = lt < c ? 0 : ((lt - c) % 0.45) / 0.45, hit = lt >= c && ph < 0.3;
+  if (lt > c) A.icon('copper', x, y - 214, 1.0);
+  ctx.save(); ctx.translate(x + 160, y - 420); ctx.rotate(hit ? lerp(0.9, 0, eo(ph / 0.3)) : lerp(0, 0.9, eio((ph - 0.3) / 0.7))); K.cut(K.P_rr(-12, 0, 24, 230, 6), '#7A5636'); K.cut(K.P_rr(-150, 190, 160, 70, 10), P.stoneDark); ctx.restore();
+  for (let i = 0; i < Math.min(n, 6); i++) { const tt = c + i * 0.45 + 0.15, k = eo(seg(lt, tt, tt + 0.35)); if (lt < tt) continue; A.icon('copper', lerp(x, x - 300 - (i % 3) * 30, k), lerp(y - 214, y - 30 - i * 14, k), 1.0); }
+  A.tornSlip('COPPER COINS', x - 250, y - 470, eob(seg(lt, c, c + 0.3)), 40);
+}
 /** a small factory building with the VOC flag (cut paper), ground centre (0, 0) */
 function factory(x, y, t) {
   K.cut(K.P_rr(x - 120, y - 150, 240, 150, 4), '#B9A98C'); K.cut(K.P_poly([[x - 140, y - 146], [x, y - 230], [x + 140, y - 146]]), '#7A4B33');

@@ -172,6 +172,10 @@ export const CAST = {
   jafar:     { name: 'Mir Jafar', coat: F.bengal, legs: F.bengal, trim: P.gold, robe: 'long', hat: 'turban', sash: P.gold },
   forde:     { name: 'Col. Francis Forde', coat: P.crimson, legs: '#F1E6CC', trim: F.white, belts: 1, hat: 'tricorn', hair: '#E9DCBC' },
   // extras
+  dutchSoldier: { name: 'Dutch soldier', coat: F.blue, legs: P.ink, trim: F.orange, sash: F.orange, hat: 'brim', prop: 'spear' },
+  spanishSoldier: { name: 'Spanish soldier', coat: P.wine, legs: P.ink, trim: P.gold, hat: 'cap', prop: 'spear' },
+  ptSoldier: { name: 'Portuguese soldier', coat: F.white, legs: P.ink, trim: P.royal, sash: P.royal, hat: 'cap', prop: 'spear' },
+  portuguese: { name: 'Portuguese man', coat: P.royal, legs: P.ink, trim: P.ink, collar: 1, hat: 'brim' },
   citizen:   { name: 'citizen', coat: P.wine, legs: P.ink, trim: P.ink, collar: 1, hat: 'tall' },
   envoy:     { name: 'Dutch envoy', coat: '#2A211B', legs: P.ink, trim: F.orange, collar: 1, hat: 'brim' },
   travSoldier: { name: 'Travancore soldier', coat: P.forest, legs: F.white, trim: P.gold, hat: 'cap', prop: 'musket' },
@@ -237,6 +241,14 @@ function handProp(k, t) {
   if (k === 'shuttle') cut(() => { ctx.beginPath(); ctx.ellipse(0, 20, 50, 12, 0, 0, TAU); }, '#8C6B4E', { shadow: 0.3, edge: 2 });
   if (k === 'certificate') { cut(P_rr(-60, 0, 120, 80, 3), F.white); goldSeal(36, 56, 0.16); }
 }
+
+/** a block of soldiers (stand-off, never fighting): n figures in 2 ranks at (x, y), facing dir, with a flag */
+export function army(x, y, n, who, dir, s, flagKind, t = 0) {
+  for (let r = 1; r >= 0; r--) for (let i = 0; i < Math.ceil(n / 2); i++) person({ x: x - dir * i * 46 * s / 0.5 + r * 22 * dir, y: y - r * 18, h: 150 * s / 0.5, who, dir, arm: 4 });
+  flag(x - dir * (Math.ceil(n / 2) * 46 * s / 0.5 + 20), y, 0.7 * s / 0.5, flagKind, t, 200 * s / 0.5);
+}
+/** a carved throne (cut paper) standing on (x, y) */
+export function throne(x, y, s = 1) { ctx.save(); ctx.translate(x, y); ctx.scale(s, s); cut(P_rr(-150, -520, 300, 520, 20), P.wine); cut(P_rr(-190, -220, 380, 70, 14), '#5E2430'); cut(P_rr(-170, -150, 40, 150, 8), P.wine); cut(P_rr(130, -150, 40, 150, 8), P.wine); cut(P_poly([[-150, -520], [0, -620], [150, -520]]), P.wine); ctx.restore(); }
 
 // ═════════════════════════ PROPS ═════════════════════════
 /** VOC East Indiaman: three masts, tricolour at the stern, crimson-free. sails 0..1 (1 = set, 0 = lowered). */

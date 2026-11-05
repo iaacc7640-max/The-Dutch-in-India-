@@ -28,9 +28,9 @@ export function buildShots(script) {
   for (const build of [ch0, ch1, ch2, ch3, ch4, ch5, ch6, ch7, ch8]) build(H_);
   // chapter cards: in the pause before each chapter's first line
   chapters.forEach((c) => {
-    if (!c.year) return; const st = Le(c.first - 1) + 0.05;
-    add({ id: 'CARD_' + c.id, at: st, card: true, zoom: 0.02, cam: [W / 2, H / 2], note: `chapter card ${c.year}: ${c.title}`, draw(lt, d, t) { A.chapterCard(lt, c.year, c.title); } });
-    cue(st, 'rustle'); cue(st + 0.75, 'thud', { gain: 0.6 });
+    if (!c.year) return; const st = Le(c.first - 1) + 0.05, cont = c.id === 'CH1' ? st - at(c.first - 1) : 0;   // CH1's card already turned in on line 7
+    add({ id: 'CARD_' + c.id, at: st, card: true, zoom: 0.02, cam: [W / 2, H / 2], note: `chapter card ${c.year}: ${c.title}`, draw(lt, d, t) { A.chapterCard(lt + cont, c.year, c.title); } });
+    if (!cont) { cue(st, 'rustle'); cue(st + 0.75, 'thud', { gain: 0.6 }); }
   });
   // every shot knows its chapter (for the era bar)
   S.sort((a, b) => a.at - b.at);

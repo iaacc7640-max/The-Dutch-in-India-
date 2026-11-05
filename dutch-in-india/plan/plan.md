@@ -78,7 +78,7 @@ Caption chunks: `|` = next caption, `*` = the crimson word. Phonetic spellings a
 | # | narration (spoken) | captions | shot |
 |---|---|---|---|
 | 48 | Meanwhile, they went after their old enemy. | `*Meanwhile, they went after | their old *enemy.` | Map: Portuguese flags (white, royal-blue cross) on Indian coastal forts. |
-| 49 | As R. C. Mozoom-dar and his co-authors put it, | `As R.C. *Majumdar | and his *co-authors put it,` | An open history book page with an attribution slip (no quote marks on screen). |
+| 49 | As R. C. Mo-joom-daar and his co-authors put it, | `As R.C. *Majumdar | and his *co-authors put it,` | An open history book page with an attribution slip (no quote marks on screen). |
 | 50 | the Dutch had two aims in the East: | `the Dutch had *two aims | in the *East:` | Two blank target slips pin onto the map. |
 | 51 | revenge on Spain and Portugal, | `*revenge on Spain and Portugal,` | First slip fills: REVENGE. |
 | 52 | and a monopoly of the spice trade. | `and a *monopoly | of the *spice trade.` | Second slip fills: MONOPOLY. |
@@ -111,7 +111,7 @@ Caption chunks: `|` = next caption, `*` = the crimson word. Phonetic spellings a
 |---|---|---|---|
 | 70 | Now, back to that beach. | `Now, back to that *beach.` | The dusk beach from the cold open returns. |
 | 71 | By the seventeen-thirties, | `By the *1730s,` | Map: the south-west coast, Travancore pin. |
-| 72 | King Maar-taanda Varma of Travan-kor | `King Marthanda *Varma of Travancore` | Marthanda Varma (gold crown, conch emblem on forest green) standing. |
+| 72 | King Maar-thaanda Varma of Travan-kor | `King Marthanda *Varma of Travancore` | Marthanda Varma (gold crown, conch emblem on forest green) standing. |
 | 73 | was taking over the pepper coast, | `was *taking over | the *pepper coast,` | Map: Travancore's forest-green fill creeps along the south-west coast. |
 | 74 | and the Dutch sent troops to stop him. | `and the Dutch sent *troops | to *stop him.` | VOC ships arrive off the coast (pan right to left). |
 | 75 | In August seventeen forty-one, at Ko-la-chel, | `In August *1741, | at *Colachel,` | Colachel beach and the Dutch stockade, wide. |
