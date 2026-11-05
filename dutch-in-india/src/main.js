@@ -4,6 +4,8 @@ import { W, H, setCtx, ctx, clamp, eo, eio } from './core/lib.js';
 import { T, loadTiming } from './core/timing.js';
 import { buildCaptions, drawCaption, captionList } from './core/captions.js';
 import { buildShots } from './shots.js';
+import { loadGeo } from './core/atlas.js';
+import { PAGES } from './pages.js';
 
 const cv = document.getElementById('cv');
 setCtx(cv.getContext('2d'));
@@ -34,14 +36,15 @@ function draw(t) {
   try {
     await document.fonts.load('900 100px Inter'); await document.fonts.load('700 100px Caladea');
     const script = await (await fetch('script.json', { cache: 'no-store' })).json();
-    await loadTiming();
+    await loadTiming(); await loadGeo();
     buildCaptions(script);
     const { shots, cues } = buildShots();
     shots.sort((a, b) => a.at - b.at);
     OP._shots = shots; OP.script = script;
     OP.duration = () => T.dur;
-    OP.draw = draw;
-    OP.frame = (t, q = 0.92) => { draw(t); return cv.toDataURL('image/jpeg', q); };
+    const page = new URLSearchParams(location.search).get('page');
+    OP.draw = page ? () => { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; PAGES[page](); } : draw;
+    OP.frame = (t, q = 0.92) => { OP.draw(t); return cv.toDataURL('image/jpeg', q); };
     OP.shots = () => shots.map((s, i) => ({ id: s.id, at: +s.at.toFixed(3), end: +(i < shots.length - 1 ? shots[i + 1].at : T.dur).toFixed(3), note: s.note || '' }));
     OP.captions = () => captionList().map((c) => ({ s: +c.s.toFixed(3), e: +c.e.toFixed(3), text: c.words.map((w) => (w.hi ? '*' : '') + w.txt).join(' ') }));
     OP.cues = () => cues.slice().sort((a, b) => a.t - b.t);
