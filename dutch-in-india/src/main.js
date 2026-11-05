@@ -10,6 +10,7 @@ import { PAGES } from './pages.js';
 const cv = document.getElementById('cv');
 setCtx(cv.getContext('2d'));
 const OP = (window.OP = { ready: false });
+const QSP = new URLSearchParams(location.search);
 
 function draw(t) {
   t = clamp(t, 0, T.dur - 1e-4);
@@ -30,7 +31,10 @@ function draw(t) {
   // fade from / to black on the first and last 0.25 s
   const fade = Math.min(clamp(t / 0.25), clamp((T.dur - t) / 0.35));
   if (fade < 1) { ctx.fillStyle = '#000'; ctx.globalAlpha = 1 - fade; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
-  if (!sh.card) drawCaption(t);
+  // Shorts reframe passes: ?nocap=1 renders the picture without captions; ?caponly=1 renders only the caption strip
+  // (centred at y 540 on parchment) so tools/shorts.sh can lay both out in 9:16.
+  if (QSP.has('caponly')) { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#E9DCBC'; ctx.fillRect(0, 0, W, H); if (!sh.card) drawCaption(t, 540); return; }
+  if (!sh.card && !QSP.has('nocap')) drawCaption(t);
 }
 
 (async () => {

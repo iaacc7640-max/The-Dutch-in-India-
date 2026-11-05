@@ -45,6 +45,10 @@ export const PAGES = {
     K.ribbon('1741', 1330, 175, 1, 115);
     A.tornSlip('TRADERS, NOT RULERS', 1300, 900, 1, 92);
   },
+  stitle() {   // title band for the 9:16 Shorts: ?page=stitle&year=1741&tt=The%20Battle%20of%20Colachel
+    const qp = new URLSearchParams(location.search); K.parchment(9);
+    K.ribbon(qp.get('year') || '', W / 2, 300, 1, 110); A.tornSlip(qp.get('tt') || '', W / 2, 500, 1, 64); A.tornSlip('THE DUTCH IN INDIA', W / 2, 640, 1, 34);
+  },
   maps() {
     const v = A.VIEWS.wide; A.realMap(v);
     for (const [k, t, o] of [['amsterdam', 'AMSTERDAM'], ['bantam', 'BANTAM'], ['masulipatnam', 'MASULIPATNAM', { dx: 80 }], ['pulicat', 'PULICAT', { dx: 70, dy: -40 }], ['nagapattinam', 'NAGAPATTINAM', { dx: 90, dy: 10 }], ['cochin', 'COCHIN', { dx: -70, dy: 0 }], ['colachel', 'COLACHEL', { dx: -40, dy: 40 }], ['surat', 'SURAT', { dx: -50 }], ['chinsura', 'CHINSURA', { dy: -50 }], ['batavia', 'BATAVIA', { dy: 50 }], ['amboyna', 'AMBOYNA']]) A.pin(v, A.PL[k], t, 1, o || {});
