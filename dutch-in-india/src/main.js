@@ -3,7 +3,7 @@
 import { W, H, setCtx, ctx, clamp, eo, eio } from './core/lib.js';
 import { T, loadTiming } from './core/timing.js';
 import { buildCaptions, drawCaption, captionList } from './core/captions.js';
-import { buildShots } from './shots.js';
+import { buildShots, overlay } from './shots.js';
 import { loadGeo } from './core/atlas.js';
 import { PAGES } from './pages.js';
 
@@ -18,18 +18,19 @@ function draw(t) {
   const S = OP._shots; let i = S.length - 1; while (i > 0 && S[i].at > t) i--;
   const sh = S[i], end = i < S.length - 1 ? S[i + 1].at : T.dur, d = end - sh.at, lt = t - sh.at;
   // camera: punch-in on the cut + a slow push across the shot ("camera always moving")
-  const punch = 1 + 0.06 * (1 - eo(clamp(lt / 0.25)));
+  const punch = sh.card ? 1 : 1 + 0.03 * (1 - eo(clamp(lt / 0.25)));
   const drift = 1 + (sh.zoom ?? 0.06) * eio(clamp(lt / d));
   const [cx, cy] = sh.cam || [W / 2, H / 2];
   ctx.save(); ctx.translate(cx, cy); ctx.scale(punch * drift, punch * drift); ctx.translate(-cx, -cy);
   sh.draw(lt, d, t);
   ctx.restore();
   ctx.globalAlpha = 1; ctx.letterSpacing = '0px';
+  overlay(sh, lt, d, t); ctx.globalAlpha = 1;
 
   // fade from / to black on the first and last 0.25 s
   const fade = Math.min(clamp(t / 0.25), clamp((T.dur - t) / 0.35));
   if (fade < 1) { ctx.fillStyle = '#000'; ctx.globalAlpha = 1 - fade; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1; }
-  drawCaption(t);
+  if (!sh.card) drawCaption(t);
 }
 
 (async () => {
@@ -38,7 +39,7 @@ function draw(t) {
     const script = await (await fetch('script.json', { cache: 'no-store' })).json();
     await loadTiming(); await loadGeo();
     buildCaptions(script);
-    const { shots, cues } = buildShots();
+    const { shots, cues } = buildShots(script);
     shots.sort((a, b) => a.at - b.at);
     OP._shots = shots; OP.script = script;
     OP.duration = () => T.dur;

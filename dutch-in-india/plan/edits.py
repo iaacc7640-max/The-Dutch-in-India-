@@ -1,7 +1,7 @@
 # Round-2 edits to the draft rows: trim to the 4:50-5:10 target and keep every cut <= 3.5 s. Applied by draft.py.
 # key = the row's current spoken text; value = list of replacement rows (text, caps, shot[, gap]) — 2 rows = a split.
 E = {
- "To see how he got there, we have to go back to Amsterdam,": [("To see how he got there, we go back to Amsterdam,", "To see how | he got *there, | back to *Amsterdam,", None)],
+ "To see how he got there, we have to go back to Amsterdam,": [("To see how he got there, we go back to Amsterdam,", "To see *how | he got *there, | we go back to *Amsterdam,", None)],
  "In fifteen ninety-six, Cornelis de Howtman's ships reached Java,": [
    ("In fifteen ninety-six,", "In *1596,", "Gold ribbon 1596 drops onto a WIDE realMap of Europe to Indonesia."),
    ("Cornelis de Howtman's ships reached Java,", "Cornelis de *Houtman's | ships reached *Java,", "Route draws Amsterdam to Cape to Java; Houtman figure (wide hat, ruff) inset left.")],
@@ -16,7 +16,7 @@ E = {
  "Their first factory in India": [("Their first factory, on the Koro-man-del coast,", "Their first *factory, | on the Coromandel coast,", "realMap wide on India; the Coromandel (east) coast highlights.")],
  "opened at Mussoo-lee-putnam, on the Koro-man-del coast, in sixteen-oh-five.": [("opened at Mussoo-lee-putnam in sixteen-oh-five.", "opened at *Masulipatnam | in 1605.", None)],
  "At Poo-lee-kat alone, there may have been": [("Poo-lee-kat alone may have had", "*Pulicat alone | may have had", None)],
- "Because the people of the Spice Islands wanted Indian cloth.": [("Because the Spice Islands wanted Indian cloth.", "Because the Spice Islands | wanted Indian *cloth.", None)],
+ "Because the people of the Spice Islands wanted Indian cloth.": [("Because the Spice Islands wanted Indian cloth.", "Because the *Spice Islands | wanted Indian *cloth.", None)],
  "So the Dutch ran a loop:": [("So they ran a loop:", "So they ran | a *loop:", None)],
  "the Dutch accused English traders of plotting to seize their fort.": [
    ("the Dutch accused English traders", "the Dutch *accused | English traders", "Letter with a broken seal under the navy wash."),
@@ -71,3 +71,5 @@ E["The company itself was wound up in seventeen ninety-nine."] = [("The company 
 E["the Dutch gave up what was left,"] = [("they gave up the rest, handing it over in eighteen twenty-five.", "they gave up | the *rest, | handing it over | in 1825.", "2 shots: remaining pins flip; then on 'handing' the trade loop un-draws and the era bar lands on 1825.")]
 E["and handed it over in eighteen twenty-five."] = []
 E["Soon after, the British removed Meer Jaa-far"] = [("Then the British replaced Meer Jaa-far", "Then the British | *replaced | Mir Jafar", None)]
+E["and served it for the rest of his life."] = [("and served it for the rest of his life.", "and *served it | for the rest of his *life.", None)]
+E["Along the way they carried indigo, silk from Bengal,"] = [("Along the way they carried indigo, silk from Bengal,", "Along the *way | they carried *indigo, | silk from *Bengal,", None)]

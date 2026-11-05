@@ -86,6 +86,29 @@ def alarm(d=2.0, **_):
     for st in np.arange(0, d - 0.25, 0.5): i = int(st * SR); x[i:i + len(one)] += one
     return lp(x, 900) * 0.55
 
+# ---- Paper Atlas history effects (soft, rounded, procedural) ----
+def rustle(d=0.55, **_):
+    n = bp(noise(d), 900, 4200); k = np.linspace(0, 1, len(n)); grain = (rng.random(len(n)) < 0.01).astype(float); grain = lp(grain, 2500) * 6
+    e = np.sin(np.pi * k) ** 0.8; return (n * 0.5 + grain * n) * e * 0.35
+def quill(d=1.2, **_):
+    n = bp(noise(d), 1800, 4500); t = tt(d); strokes = np.clip(np.sin(2 * np.pi * 3.2 * t), 0, 1) ** 2
+    return n * strokes * np.minimum(1, t / 0.05) * 0.18
+def clink(**_):
+    d = 0.35; t = tt(d); x = sum(np.sin(2 * np.pi * f * t) * a for f, a in [(1660, 0.5), (2490, 0.3), (3320, 0.15)])
+    return x * env(len(t), 0.001, 10) * 0.5
+def clack(**_):
+    d = 0.12; t = tt(d); x = np.sin(2 * np.pi * (300 + 200 * np.exp(-t * 60)) * t) * env(len(t), 0.001, 12) + lp(noise(d), 1500) * env(len(t), 0.001, 20) * 0.4
+    return x * 0.6
+def waves_(d=4.0, **_):
+    n = lp(noise(d), 600); t = tt(d); sw = 0.55 + 0.45 * np.sin(2 * np.pi * t / 3.2 - 1.5)
+    return n / (np.abs(n).max() + 1e-9) * sw * np.minimum(1, t / 0.6) * np.minimum(1, (d - t) / 0.6) * 0.6
+def cannon(**_):
+    d = 1.2; t = tt(d); x = np.sin(2 * np.pi * (45 + 30 * np.exp(-t * 10)) * t) * env(len(t), 0.004, 5) + lp(noise(d), 260) * env(len(t), 0.002, 6) * 0.6
+    return lp(x, 400) * 0.8
+def boom(**_):
+    d = 2.2; t = tt(d); x = np.sin(2 * np.pi * (38 + 25 * np.exp(-t * 6)) * t) * env(len(t), 0.01, 3.5) + lp(noise(d), 200) * env(len(t), 0.01, 3) * 0.7
+    return lp(x, 300) * 0.9
+
 def inhale(d=1.0, **_):
     n = bp(noise(d), 300, 2600); k = np.linspace(0, 1, len(n)); e = np.sin(np.pi * np.minimum(1, k * 1.15)) ** 1.5 * (0.6 + 0.4 * k)
     return n / (np.abs(n).max() + 1e-9) * e * 0.5
@@ -93,15 +116,15 @@ def heartbeat(**_):
     one = lambda d, f: np.sin(2 * np.pi * f * tt(d)) * env(int(d * SR), 0.004, 7)
     x = np.concatenate([one(0.16, 58), np.zeros(int(0.09 * SR)), one(0.2, 52) * 0.75]); return lp(x, 300) * 1.0
 
-FX = dict(inhale=inhale, heartbeat=heartbeat, whoosh=whoosh, slide=slide, pop=pop, plop=plop, gulp=gulp, boing=boing, bubbles=bubbles, sizzle=sizzle,
+FX = dict(rustle=rustle, quill=quill, clink=clink, clack=clack, waves=waves_, cannon=cannon, boom=boom, inhale=inhale, heartbeat=heartbeat, whoosh=whoosh, slide=slide, pop=pop, plop=plop, gulp=gulp, boing=boing, bubbles=bubbles, sizzle=sizzle,
           sparkle=sparkle, thud=thud, slam=slam, tock=tock, zip=zip_, alarm=alarm)
-LEVEL = dict(inhale=-15, heartbeat=-8, whoosh=-17, slide=-19, pop=-14, plop=-15, gulp=-11, boing=-15, bubbles=-21, sizzle=-18, sparkle=-17,
+LEVEL = dict(rustle=-19, quill=-24, clink=-21, clack=-20, waves=-23, cannon=-17, boom=-15, inhale=-15, heartbeat=-8, whoosh=-17, slide=-19, pop=-14, plop=-15, gulp=-11, boing=-15, bubbles=-21, sizzle=-18, sparkle=-17,
              thud=-11, slam=-9, tock=-18, zip=-14, alarm=-17)
 
 
 # ---------- the music bed: soft pad + plucked arpeggio, 100 BPM, I–vi–IV–V ----------
-def music_bed():
-    bpm = 100; beat = 60 / bpm; bar = beat * 4
+def music_bed(pulse=1.0, warm=False):
+    bpm = 84 if warm else 100; beat = 60 / bpm; bar = beat * 4
     chords = [[261.6, 329.6, 392.0], [220.0, 261.6, 329.6], [174.6, 220.0, 261.6], [196.0, 246.9, 293.7]]
     x = np.zeros(N)
     nb = int(np.ceil(DUR / bar)) + 1
@@ -114,7 +137,7 @@ def music_bed():
         for k in range(8):                                                       # eighth-note pluck arpeggio
             f = ch[[0, 1, 2, 1, 2, 0, 1, 2][k]] * (2 if k % 4 == 2 else 1); ps = st + int(k * beat / 2 * SR); pn = int(0.5 * SR)
             if ps + pn >= N: continue
-            pt = tt(0.5); pl = (np.sin(2 * np.pi * f * pt) + 0.35 * np.sin(4 * np.pi * f * pt)) * env(pn, 0.003, 7) * 0.12
+            pt = tt(0.5); pl = (np.sin(2 * np.pi * f * pt) + 0.35 * np.sin(4 * np.pi * f * pt)) * env(pn, 0.003, 7) * 0.12 * pulse
             x[ps:ps + pn] += pl
     x = lp(x, 3200)
     fade = np.ones(N); fo = int(1.2 * SR); fade[-fo:] = np.linspace(1, 0, fo)
@@ -148,8 +171,23 @@ if vf.exists():
     mix += voice
 # music
 mus = script.get('music', 'bed')
+CHMUS = {'CH0': 'tension', 'CH1': 'bed', 'CH2': 'bed', 'CH3': 'tension', 'CH4': 'bedlow', 'CH5': 'bed', 'CH6': 'tension', 'CH7': 'tension', 'CH8': 'warm'}
+def chapter_music():
+    """per-chapter sections from data/chapters.json, 1 s crossfades between different moods"""
+    chs = json.loads((P / 'data/chapters.json').read_text())['chapters']
+    beds = {'bed': music_bed(), 'bedlow': music_bed(pulse=0.35), 'warm': music_bed(pulse=0.6, warm=True), 'tension': music_tension()}
+    for k in beds: beds[k] = beds[k] / (np.sqrt(np.mean(beds[k] ** 2)) + 1e-9)
+    gain = {k: np.zeros(N) for k in beds}; xf = int(1.0 * SR)
+    for c in chs:
+        a, b = int(c['start'] * SR), min(N, int(c['end'] * SR)); g = gain[CHMUS.get(c['id'], 'bed')]
+        g[max(0, a - xf // 2):min(N, b + xf // 2)] = 1.0
+    out = np.zeros(N)
+    for k in beds:
+        g = np.convolve(gain[k], np.ones(xf) / xf, mode='same'); out += beds[k] * g
+    fade = np.ones(N); fo = int(2.5 * SR); fade[-fo:] = np.linspace(1, 0, fo); fi = int(0.8 * SR); fade[:fi] *= np.linspace(0, 1, fi)
+    return out / (np.abs(out).max() + 1e-9) * fade
 if mus and mus != 'none':
-    m = music_bed() if mus == 'bed' else music_tension() if mus == 'tension' else None
+    m = chapter_music() if mus == 'chapters' else music_bed() if mus == 'bed' else music_tension() if mus == 'tension' else None
     if m is None:
         a = load_audio(P / mus)[:N]; m = np.zeros(N); m[:len(a)] = a.mean(1); m /= np.abs(m).max() + 1e-9
     m = np.stack([m, m], 1) * db(-24 if voice is not None else -20)

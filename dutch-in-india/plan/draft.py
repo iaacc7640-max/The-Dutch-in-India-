@@ -132,9 +132,31 @@ for r in R:
             R2.append(row + ((CARD if g == "CARD" else g,) if g else ()))
     else: R2.append(r)
 R = R2
+
+SMALL = set("a an the and of in on to at it its by for from with his their they he that was were who what as or but so then there".split())
+def fix_caps(caps):
+    """every caption: 2-5 words and exactly one crimson word. Merge a starless or 1-word chunk into a neighbour
+    when the result stays <= 5 words with <= 1 star; otherwise star its longest content word."""
+    ch = [c.strip().split() for c in caps.split('|') if c.strip()]
+    stars = lambda c: sum(w.startswith('*') for w in c)
+    changed = True
+    while changed:
+        changed = False
+        for i, c in enumerate(ch):
+            if stars(c) == 1 and len(c) >= 2: continue
+            for j in ([i + 1, i - 1] if i + 1 < len(ch) else [i - 1]):
+                if 0 <= j < len(ch) and len(c) + len(ch[j]) <= 5 and stars(c) + stars(ch[j]) <= 1:
+                    a, b = sorted([i, j]); ch[a] = ch[a] + ch[b]; del ch[b]; changed = True; break
+            if changed: break
+    for c in ch:
+        if stars(c) == 0:
+            k = max(range(len(c)), key=lambda q: (c[q].strip('.,:;?!').lower() not in SMALL, len(c[q].strip('.,:;?!'))))
+            c[k] = '*' + c[k]
+    return ' | '.join(' '.join(c) for c in ch)
+
 lines = []
 for r in R:
-    ch, text, caps, shot = r[:4]; ln = {"chapter": CH[ch][0], "text": text, "caps": caps, "shot": shot}
+    ch, text, caps, shot = r[:4]; ln = {"chapter": CH[ch][0], "text": text, "caps": fix_caps(caps), "shot": shot}
     if len(r) > 4: ln["gap"] = r[4]
     lines.append(ln)
 words = sum(len(l["text"].split()) for l in lines)

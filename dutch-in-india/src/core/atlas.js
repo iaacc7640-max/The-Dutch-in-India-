@@ -22,8 +22,8 @@ export function stars(n, seed, night, ymax = 520) { if (night < 0.6) return; ctx
 // ═════════════════════════ CAMERA / LAYERS ═════════════════════════
 /** parallax layer: depth 0 = fixed (sky), 1 = moves fully with the camera. cam = { x, y, zoom } (x, y = pan offsets in px) */
 export function layer(cam, depth, fn) {
-  ctx.save(); const z = 1 + (cam.zoom - 1) * depth;
-  ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2 - cam.x * depth, -H / 2 - cam.y * depth); fn(); ctx.restore();
+  ctx.save(); const cx = cam.x || 0, cy = cam.y || 0, z = 1 + ((cam.zoom ?? 1) - 1) * depth;
+  ctx.translate(W / 2, H / 2); ctx.scale(z, z); ctx.translate(-W / 2 - cx * depth, -H / 2 - cy * depth); fn(); ctx.restore();
 }
 export const camAt = (lt, d, a, b) => { const k = eio(clamp(lt / d)); return { x: lerp(a.x || 0, b.x || 0, k), y: lerp(a.y || 0, b.y || 0, k), zoom: lerp(a.zoom || 1, b.zoom || 1, k) }; };
 
@@ -46,7 +46,7 @@ export const VIEWS = {
   india: view(80, 17, 34),             // the whole subcontinent
   south: view(78.5, 11.5, 62),         // Coromandel + Malabar + Travancore
   bengal: view(87.5, 23.4, 120),       // Hooghly
-  moluccas: view(122, -2.5, 40),
+  moluccas: view(127.5, -1.8, 78),
 };
 export const vlerp = (a, b, k) => ({ lon: lerp(a.lon, b.lon, k), lat: lerp(a.lat, b.lat, k), s: Math.exp(lerp(Math.log(a.s), Math.log(b.s), k)) });
 export const px = (v, ll) => [W / 2 + (ll[0] - v.lon) * v.s, H / 2 - 40 - (ll[1] - v.lat) * v.s];
@@ -279,7 +279,9 @@ export function tradeLoop(A, B, C, p, phase = 0, goods = [], o = {}) {
   const curve = (a, b, u) => { const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy); const cx = mx + dy / l * bend, cy = my - dx / l * bend; const v = 1 - u; return [v * v * a[0] + 2 * v * u * cx + u * u * b[0], v * v * a[1] + 2 * v * u * cy + u * u * b[1]]; };
   legs.forEach(([a, b], i) => { const q = clamp(p - i); if (q <= 0) return; const pts = []; for (let k = 0; k <= 24; k++) pts.push(curve(a, b, k / 24 * q)); ctx.save(); ctx.globalAlpha = o.alpha ?? 1; dashedRoute(pts, 1); ctx.restore();
     if (q >= 1) { const [hx, hy] = curve(a, b, 0.97), [px2, py2] = curve(a, b, 0.9); const an = Math.atan2(hy - py2, hx - px2); ctx.save(); ctx.translate(hx, hy); ctx.rotate(an); ctx.fillStyle = P.crimson; ctx.beginPath(); ctx.moveTo(10, 0); ctx.lineTo(-18, -14); ctx.lineTo(-18, 14); ctx.closePath(); ctx.fill(); ctx.restore(); } });
-  if (p >= 3) { const all = [...legs.map((l) => l[2]), ...goods]; all.forEach((g, j) => { const u = ((phase + j / all.length * 3) % 3 + 3) % 3, i = Math.floor(u), [x, y] = curve(legs[i][0], legs[i][1], u - i); icon(typeof g === 'string' ? g : g.k, x, y, (typeof g === 'string' ? 0.8 : g.s ?? 0.8) * (o.iconScale || 1)); }); }
+  // each leg carries its own goods: India's goods ride to the islands, spices ride to Amsterdam, coins ride back
+  const per = [['cloth', ...goods.map((g) => (typeof g === 'string' ? g : g.k))], ['nutmeg', 'clove', 'pepper'], ['coins', 'coins']];
+  if (p >= 3) per.forEach((ks, i) => ks.forEach((k, j) => { const u = ((phase + j / ks.length) % 1 + 1) % 1, [x, y] = curve(legs[i][0], legs[i][1], 0.08 + u * 0.84); icon(k, x, y, 0.8 * (o.iconScale || 1)); }));
   else legs.forEach(([a, b, k], i) => { const q = clamp(p - i); if (q > 0 && q < 1) { const [x, y] = curve(a, b, q); icon(k, x, y, 0.8 * (o.iconScale || 1)); } });
   return { A, B, C };
 }
