@@ -34,6 +34,12 @@ export function buildShots(script) {
   });
   // every shot knows its chapter (for the era bar)
   S.sort((a, b) => a.at - b.at);
+  // the picture changes at least every 3.5 s: a longer shot gets a second, reframed shot halfway (same animation, new framing)
+  const endOf = new Map(S.map((s, i) => [s, i < S.length - 1 ? S[i + 1].at : T.dur]));
+  S.slice().forEach((s) => { const i = S.indexOf(s), full = endOf.get(s) - s.at; if (full <= 3.5 || s.card || s.hold) return;
+    const draw0 = s.draw, mid = s.at + full / 2, off = mid - s.at, [cx, cy] = s.cam || [W / 2, H / 2];
+    s.draw = (lt, d, t) => draw0(lt, full, t);
+    S.splice(i + 1, 0, { ...s, id: s.id + '_b', at: mid, cam: [cx + (cx < W / 2 ? 160 : -160), cy - 30], zoom: (s.zoom ?? 0.04) + 0.05, note: s.note + ' (reframed)', draw: (lt, d, t) => draw0(lt + off, full, t) }); });
   S.forEach((s) => { if (!s.chapter) { const c = chapters.filter((x) => L(x.first) - 0.2 <= s.at + 1e-3).pop() || chapters[0]; s.chapter = c.id; } });
   return { shots: S, cues: CUES };
 }

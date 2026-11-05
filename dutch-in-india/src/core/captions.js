@@ -43,5 +43,6 @@ export const captionList = () => caps;
 export function drawCaption(t) {
   const c = caps.find((c) => t >= c.s && t < c.e); if (!c) return;
   const lt = t - c.s, sc = lt < 0.18 ? lerp(0.7, 1, eob(seg(lt, 0, 0.18))) : 1;
-  captionStrip(c.words, W / 2, CAPLOOK.y, sc);
+  // last 20 s: keep the bottom-right 420x260 clear for YouTube end-screen elements (strip shifts left, narrower)
+  const end = t > T.dur - 20; captionStrip(c.words, end ? 760 : W / 2, CAPLOOK.y, sc, end ? { ...CAPLOOK, maxW: 1100 } : CAPLOOK);
 }
