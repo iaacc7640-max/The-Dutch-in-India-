@@ -1,0 +1,95 @@
+{
+ "duration": 309.914,
+ "chapters": [
+  {
+   "id": "CH0",
+   "year": null,
+   "title": "Cold open",
+   "first": 0,
+   "card": null,
+   "start": 0,
+   "last": 7,
+   "end": 20.103
+  },
+  {
+   "id": "CH1",
+   "year": "1596",
+   "title": "A Company That Could Go to War",
+   "first": 8,
+   "card": 20.103,
+   "start": 20.103,
+   "last": 21,
+   "end": 57.015
+  },
+  {
+   "id": "CH2",
+   "year": "1605",
+   "title": "The Cloth Coast",
+   "first": 22,
+   "card": 57.015,
+   "start": 57.015,
+   "last": 35,
+   "end": 99.975
+  },
+  {
+   "id": "CH3",
+   "year": "1623",
+   "title": "Trouble at Amboyna",
+   "first": 36,
+   "card": 99.975,
+   "start": 99.975,
+   "last": 47,
+   "end": 130.97
+  },
+  {
+   "id": "CH4",
+   "year": "1663",
+   "title": "Taking Portugal's Forts",
+   "first": 48,
+   "card": 130.97,
+   "start": 130.97,
+   "last": 58,
+   "end": 162.833
+  },
+  {
+   "id": "CH5",
+   "year": "1678",
+   "title": "The Garden of Malabar",
+   "first": 59,
+   "card": 162.833,
+   "start": 162.833,
+   "last": 69,
+   "end": 194.69
+  },
+  {
+   "id": "CH6",
+   "year": "1741",
+   "title": "The Battle of Colachel",
+   "first": 70,
+   "card": 194.69,
+   "start": 194.69,
+   "last": 87,
+   "end": 240.812
+  },
+  {
+   "id": "CH7",
+   "year": "1759",
+   "title": "Last Stand in Bengal",
+   "first": 88,
+   "card": 240.812,
+   "start": 240.812,
+   "last": 99,
+   "end": 274.608
+  },
+  {
+   "id": "CH8",
+   "year": "1825",
+   "title": "Exit, Quietly",
+   "first": 100,
+   "card": 274.608,
+   "start": 274.608,
+   "last": 110,
+   "end": 309.914
+  }
+ ]
+}

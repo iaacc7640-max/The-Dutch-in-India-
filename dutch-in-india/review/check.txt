@@ -1,0 +1,334 @@
+duration 309.91 s
+C0_beach   0.00 →   1.90  (1.90 s)  dusk beach, wide, waves
+C0_beach2   1.90 →   4.31  (2.41 s)  closer on the far stockade: the white flag rises
+C0_twoshot   4.31 →   7.33  (3.02 s)  two-shot: De Lannoy hands his sword to Marthanda Varma
+C0_stranger   7.33 →   9.41  (2.08 s)  push in on De Lannoy, '?' slip
+C0_joined   9.41 →  11.21  (1.80 s)  De Lannoy now in Travancore green, salutes; soldiers behind
+C0_years  11.21 →  13.31  (2.10 s)  Udayagiri fort silhouette, years tick 1741 to 1777
+C0_amsterdam  13.31 →  16.54  (3.23 s)  page turns to Amsterdam canal, lateral pan
+C0_idea  16.54 →  18.28  (1.74 s)  a new idea: paper spark bursts, turns into a share certificate
+C0_card  18.28 →  20.10  (1.83 s)  card turns in: 1596, A Company That Could Go to War
+CARD_CH1  20.10 →  21.57  (1.47 s)  chapter card 1596: A Company That Could Go to War
+C1_1596  21.57 →  23.21  (1.64 s)  world map, ribbon 1596
+C1_route  23.21 →  26.10  (2.89 s)  route Amsterdam > Cape > Java draws; Houtman inset
+C1_bantam  26.10 →  29.24  (3.14 s)  ship at BANTAM, Moluccas glow
+C1_spain  29.24 →  32.33  (3.09 s)  Europe: Dutch and Spanish armies face off (stand-off)
+C1_crowns  32.33 →  34.86  (2.53 s)  Spain takes Portugal's throne; Spanish and Portuguese flags
+C1_asia  34.86 →  37.16  (2.30 s)  Asia map: Dutch and Portuguese armies face off (stand-off)
+C1_motives  37.16 →  39.83  (2.67 s)  same map: PROFIT and REVENGE slips pin on
+C1_1602  39.83 →  42.26  (2.43 s)  Amsterdam, ribbon 1602, States-General slip
+C1_merge  42.26 →  45.34  (3.08 s)  six company pennants slide together
+C1_voc  45.34 →  47.44  (2.10 s)  pennants fuse into the VOC seal
+C1_shares  47.44 →  50.27  (2.83 s)  queue of citizens with share certificates
+C1_director  50.27 →  52.88  (2.61 s)  VOC director opens the ledger
+C1_powers20  52.88 →  54.98  (2.11 s)  icons pop: fort, treaty
+C1_powers21  54.98 →  57.02  (2.03 s)  icons pop: coin, cannon; all four line up
+CARD_CH2  57.02 →  58.48  (1.47 s)  chapter card 1605: The Cloth Coast
+C2_coast  58.48 →  61.88  (3.39 s)  map India, Coromandel coast marked
+C2_masuli  61.88 →  65.27  (3.39 s)  pin MASULIPATNAM, factory pops, ribbon 1605
+C2_pulicat_map  65.27 →  68.47  (3.20 s)  view slides south: PULICAT above MADRAS
+C2_fort  68.47 →  71.42  (2.96 s)  Pulicat fort rises; copper coins drop into a stack
+C2_weaver  71.42 →  73.69  (2.26 s)  weaver at a handloom (clack)
+C2_looms  73.69 →  76.02  (2.33 s)  handlooms multiply in rows; slip 1,000+?
+C2_why  76.02 →  79.22  (3.20 s)  WHY INDIA? slip between cloth (left) and nutmeg (right)
+C2_moluccas  79.22 →  81.15  (1.92 s)  map pans to the Moluccas; cloth bolts land
+C2_moluccas2  81.15 →  82.82  (1.67 s)  close on the Spice Islands: cloth bolts land
+C2_loop1  82.82 →  86.04  (3.22 s)  TRADE LOOP: leg 1 India to Spice Islands, cloth
+C2_loop2  86.04 →  89.48  (3.44 s)  TRADE LOOP: leg 2 Spice Islands to Amsterdam, spices
+C2_loop3  89.48 →  91.25  (1.77 s)  TRADE LOOP closes: coins back to India; loop turns
+C2_goods1  91.25 →  93.06  (1.81 s)  India map: INDIGO (Yamuna valley), SILK (Bengal) pinned as named
+C2_goods1_b  93.06 →  94.87  (1.81 s)  India map: INDIGO (Yamuna valley), SILK (Bengal) pinned as named (reframed)
+C2_goods2  94.87 →  97.30  (2.43 s)  India map: SALTPETRE (Bihar) pinned
+C2_goods3  97.30 →  99.97  (2.67 s)  India map: OPIUM and RICE (Ganga valley) pinned
+CARD_CH3  99.97 → 101.45  (1.47 s)  chapter card 1623: Trouble at Amboyna
+C3_ships 101.45 → 103.87  (2.42 s)  Dutch and English ships side by side
+C3_nudge 103.87 → 105.81  (1.94 s)  the two ships bump
+C3_pin 105.81 → 107.99  (2.18 s)  map: AMBOYNA pin, dusk
+C3_fort 107.99 → 109.72  (1.73 s)  Amboyna fort silhouette at night
+C3_letter 109.72 → 111.72  (2.00 s)  letter with a broken seal, candlelight
+C3_plot 111.72 → 113.69  (1.98 s)  slip 'PLOT?' on the letter
+C3_confess 113.69 → 116.27  (2.58 s)  prisoners with bound hands sign a CONFESSION (symbolic, no harm shown)
+C3_english 116.27 → 118.47  (2.20 s)  10 ENGLISH appear, then fade to silhouettes
+C3_japanese 118.47 → 120.41  (1.94 s)  9 JAPANESE appear
+C3_portuguese 120.41 → 122.26  (1.85 s)  1 PORTUGUESE; all fade; the candle goes out
+C3_tear 122.26 → 124.23  (1.97 s)  paper handshake tears in two
+C3_tear2 124.23 → 126.00  (1.77 s)  the torn halves drift apart
+C3_flags 126.00 → 128.36  (2.36 s)  Dutch flags fill the Moluccas
+C3_turn 128.36 → 130.97  (2.61 s)  English ship turns left toward India
+CARD_CH4 130.97 → 132.44  (1.47 s)  chapter card 1663: Taking Portugal's Forts
+C4_pt 132.44 → 135.76  (3.32 s)  map: Portuguese flags on south Indian forts
+C4_book 135.76 → 137.54  (1.78 s)  open history book, attribution slip
+C4_book_b 137.54 → 139.32  (1.78 s)  open history book, attribution slip (reframed)
+C4_aims 139.32 → 141.65  (2.33 s)  two blank target slips
+C4_revenge 141.65 → 143.85  (2.20 s)  REVENGE fills
+C4_monopoly 143.85 → 146.18  (2.33 s)  MONOPOLY fills
+C4_1658 146.18 → 147.88  (1.70 s)  ribbon 1658 over the south-east coast
+C4_naga 147.88 → 150.71  (2.83 s)  NAGAPATTINAM flag swaps Portuguese to Dutch
+C4_far 150.71 → 153.13  (2.42 s)  pan down the coast from Madras to Nagapattinam
+C4_cochin 153.13 → 156.24  (3.11 s)  Cochin: the fort on the shore by the sea; its flag swaps to the tricolour
+C4_ripple 156.24 → 159.50  (3.26 s)  Malabar forts flip in a ripple
+C4_pepper 159.50 → 162.83  (3.33 s)  pepper sacks stamped VOC roll onto a ship
+CARD_CH5 162.83 → 164.30  (1.47 s)  chapter card 1678: The Garden of Malabar
+C5_money 164.30 → 167.20  (2.90 s)  coins slide off; a green leaf drifts in
+C5_rheede 167.20 → 170.54  (3.34 s)  van Rheede in a Cochin garden, lateral pan
+C5_quill 170.54 → 173.54  (3.00 s)  a quill sketches a leaf on parchment
+C5_achudan 173.54 → 176.23  (2.69 s)  Itty Achudan reads a palm-leaf manuscript
+C5_herbs 176.23 → 178.21  (1.98 s)  herbs sketch in ink beside him
+C5_scholars 178.21 → 181.07  (2.86 s)  three scholars nod over a page
+C5_book 181.07 → 183.81  (2.74 s)  a bound volume lands, title slip
+C5_volumes 183.81 → 187.29  (3.48 s)  twelve volumes stack up; ribbon 1678
+C5_plates 187.29 → 189.50  (2.21 s)  plates fan out across the frame
+C5_palm 189.50 → 191.27  (1.76 s)  engraving page: coconut palm drawn line by line
+C5_palm_b 191.27 → 193.03  (1.77 s)  engraving page: coconut palm drawn line by line (reframed)
+C5_knowledge 193.03 → 194.69  (1.66 s)  slip 'INDIAN KNOWLEDGE' on the plate
+CARD_CH6 194.69 → 196.16  (1.47 s)  chapter card 1741: The Battle of Colachel
+C6_beach 196.16 → 197.97  (1.81 s)  the dusk beach from the cold open returns
+C6_map 197.97 → 199.73  (1.76 s)  map: south-west coast, TRAVANCORE pin
+C6_varma 199.73 → 202.19  (2.46 s)  Marthanda Varma standing, conch flag
+C6_fill 202.19 → 204.57  (2.39 s)  Travancore's green fill creeps along the coast
+C6_ships 204.57 → 206.90  (2.33 s)  VOC ships arrive off the coast, right to left
+C6_colachel 206.90 → 210.37  (3.47 s)  Colachel beach and the Dutch stockade, wide
+C6_ball 210.37 → 213.03  (2.66 s)  one crimson dashed cannonball arc toward the far stockade
+C6_flash 213.03 → 215.37  (2.33 s)  far flash and smoke column (no people)
+C6_rice 215.37 → 217.47  (2.11 s)  rice sacks scorched at the edges
+C6_white 217.47 → 219.43  (1.96 s)  white flag rises over the stockade
+C6_fishers 219.43 → 222.15  (2.72 s)  night: small fishing boats glide under the navy wash
+C6_tip 222.15 → 224.15  (1.99 s)  empty Dutch boats tip under the waves
+C6_twoshot 224.15 → 226.91  (2.77 s)  the cold-open two-shot again: the sword handover
+C6_recruit 226.91 → 229.73  (2.81 s)  his coat swaps from Dutch blue to Travancore green
+C6_drill 229.73 → 233.18  (3.45 s)  De Lannoy drills ranks of Travancore soldiers (lateral pan)
+C6_captain 233.18 → 234.85  (1.67 s)  slip 'VALIYA KAPPITHAN: THE GREAT CAPTAIN'
+C6_treaty 234.85 → 237.60  (2.75 s)  treaty scroll unrolls; ribbon 1753
+C6_seals 237.60 → 240.81  (3.21 s)  two wax seals stamp on (VOC gold, Travancore conch)
+CARD_CH7 240.81 → 242.28  (1.47 s)  chapter card 1759: Last Stand in Bengal
+C7_map 242.28 → 245.34  (3.06 s)  map: Bengal, Hooghly; CHINSURA above CALCUTTA, PLASSEY
+C7_jafar 245.34 → 247.68  (2.34 s)  Mir Jafar on a cushion throne
+C7_letter 247.68 → 250.98  (3.30 s)  he slips a sealed letter to a Dutch envoy
+C7_1759 250.98 → 252.95  (1.97 s)  ribbon 1759; river mouth from above
+C7_fleet 252.95 → 255.31  (2.36 s)  wide river pan: Dutch ships sail in from Batavia, right to left
+C7_troops 255.31 → 257.95  (2.65 s)  slip '1,500+ European and Malay troops' over the masts
+C7_forde 257.95 → 259.77  (1.81 s)  Forde (red coat) on the bank; redcoats in a line
+C7_forde_b 259.77 → 261.58  (1.81 s)  Forde (red coat) on the bank; redcoats in a line (reframed)
+C7_masts 261.58 → 264.46  (2.87 s)  Dutch masts lower one by one on the river
+C7_sixteen 264.46 → 266.23  (1.77 s)  counter slip to '16 EUROPEANS' at the fort gate
+C7_sixteen_b 266.23 → 268.00  (1.77 s)  counter slip to '16 EUROPEANS' at the fort gate (reframed)
+C7_lift 268.00 → 270.35  (2.34 s)  the throne cushion: Mir Jafar's turban lifts away
+C7_kasim 270.35 → 272.49  (2.15 s)  a second turban settles: Mir Kasim
+C7_tint 272.49 → 274.61  (2.11 s)  map: British crimson tint spreads over Bengal
+CARD_CH8 274.61 → 276.08  (1.47 s)  chapter card 1825: Exit, Quietly
+C8_fade 276.08 → 278.19  (2.12 s)  wide map; Dutch flags in India dim
+C8_indonesia 278.19 → 281.13  (2.94 s)  the Indonesian side glows gold
+C8_flip 281.13 → 284.19  (3.05 s)  India flags flip to British one by one
+C8_posts 284.19 → 286.55  (2.37 s)  last flips; ribbon 1795
+C8_crack 286.55 → 288.35  (1.80 s)  the VOC seal fills the frame, then cracks in two (1799)
+C8_crack_b 288.35 → 290.15  (1.80 s)  the VOC seal fills the frame, then cracks in two (1799) (reframed)
+C8_1824 290.15 → 293.26  (3.11 s)  treaty scroll, two seals; ribbon 1824
+C8_rest 293.26 → 294.84  (1.58 s)  the last flags go
+C8_undraw 294.84 → 297.38  (2.54 s)  the trade loop un-draws; era bar lands on 1825
+C8_trade 297.38 → 300.53  (3.15 s)  a VOC ship turns to leave; TRADE, NOT EMPIRE
+C8_leave 300.53 → 302.16  (1.64 s)  the ship sails off right
+C8_watch 302.16 → 304.90  (2.74 s)  dusk beach: De Lannoy in Travancore green watches the ship go
+C8_end 304.90 → 309.91  (5.01 s)  end card: title + ribbon top-left; bottom-right empty
+captions:
+    0.45–2.67   In *1741, on a beach
+    2.67–4.34   in southern *India,
+    4.34–5.38   a Dutch *commander
+    5.38–7.36   surrendered to an Indian *king.
+    7.36–9.44   Then he did something *stranger:
+    9.44–9.99   he *joined
+    9.99–11.24  that king's *army,
+   11.24–11.89  and *served it
+   11.89–13.34  for the rest of his *life.
+   13.34–13.99  To see *how
+   13.99–14.84  he got *there,
+   14.84–16.57  we go back to *Amsterdam,
+   16.57–18.31  and a very new *idea:
+   18.31–18.84  a *company
+   18.84–20.40  that could go to *war.
+   21.60–23.24  In *1596,
+   23.24–24.49  Cornelis de *Houtman's
+   24.49–26.13  ships reached *Java,
+   26.13–27.23  and the *Dutch had
+   27.23–28.17  their *own route
+   28.17–29.27  to the *spices.
+   29.27–29.88  *Back home,
+   29.88–31.09  they were *fighting Spain
+   31.09–32.36  for *independence,
+   32.36–33.25  and *Spain now
+   33.25–34.89  ruled *Portugal too,
+   34.89–36.33  so hurting the *Portuguese
+   36.33–37.19  in *Asia
+   37.19–38.11  was *business
+   38.11–39.86  and *revenge at once.
+   39.86–40.94  In *1602,
+   40.94–42.29  the Dutch *government
+   42.29–44.29  merged its rival trading *firms
+   44.29–45.37  *into one:
+   45.37–47.47  the Dutch East India *Company.
+   47.47–48.74  Ordinary *citizens
+   48.74–50.30  could buy *shares.
+   50.30–51.11  And it *could do
+   51.11–52.91  what few companies *ever had:
+   52.91–53.80  build *forts,
+   53.80–55.02  sign *treaties,
+   55.02–55.94  mint *coins,
+   55.94–57.31  and wage *war.
+   58.52–59.88  Their first *factory,
+   59.88–61.91  on the *Coromandel coast,
+   61.91–65.30  opened at *Masulipatnam in 1605.
+   65.30–66.84  Soon came *Pulicat,
+   66.84–68.50  north of *Madras,
+   68.50–69.88  where they built a *fort
+   69.88–71.45  and minted copper *coins.
+   71.45–73.72  *Pulicat alone may have had
+   73.72–74.51  over a *thousand
+   74.51–76.05  *handlooms working for them.
+   76.05–77.17  But why *India,
+   77.17–79.25  if the Dutch wanted *spices?
+   79.25–81.15  Because the *Spice Islands
+   81.15–82.85  wanted Indian *cloth.
+   82.85–84.08  So they ran a *loop:
+   84.08–86.07  buy cotton *cloth in India,
+   86.07–87.33  trade it for *nutmeg,
+   87.33–89.51  cloves and *pepper in Indonesia,
+   89.51–91.28  and sell those in *Europe.
+   91.28–92.15  Along the *way
+   92.15–93.43  they carried *indigo,
+   93.43–94.90  silk from *Bengal,
+   94.90–96.07  *saltpetre from Bihar
+   96.07–97.33  for *gunpowder,
+   97.33–98.53  and *opium and rice
+   98.53–100.28 from the Ganga *valley.
+  101.48–102.52 The *English wanted
+  102.52–103.90 the same *spices,
+  103.90–105.84 and the rivalry turned *ugly.
+  105.84–107.45 In *1623,
+  107.45–109.75 on the island of *Amboyna,
+  109.75–111.75 the Dutch *accused English traders
+  111.75–112.38 of *plotting
+  112.38–113.72 to *seize their fort.
+  113.72–114.66 After *confessions
+  114.66–116.30 taken under *torture,
+  116.30–118.50 they executed *ten Englishmen,
+  118.50–120.44 *nine Japanese soldiers
+  120.44–122.29 and *one Portuguese man.
+  122.29–123.47 It ended any *hope
+  123.47–124.80 of the two *companies
+  124.80–126.03 working *together.
+  126.03–126.91 The *Dutch kept
+  126.91–128.39 the Spice *Islands,
+  128.39–129.24 and the *English
+  129.24–130.37 *turned more and more
+  130.37–131.27 to *India.
+  132.47–134.40 *Meanwhile, they went after
+  134.40–135.79 their old *enemy.
+  135.79–137.31 As R.C. *Majumdar
+  137.31–139.35 and his *co-authors put it,
+  139.35–140.59 the Dutch had *two aims
+  140.59–141.68 in the *East:
+  141.68–143.88 *revenge on Spain and Portugal,
+  143.88–144.79 and a *monopoly
+  144.79–146.21 of the *spice trade.
+  146.21–147.91 In *1658
+  147.91–149.16 they took *Nagapattinam
+  149.16–150.74 from the *Portuguese,
+  150.74–153.16 far *down the Coromandel coast.
+  153.16–154.59 In *1663
+  154.59–156.27 they took *Cochin,
+  156.27–158.33 and with it, *Portugal's last
+  158.33–159.53 Malabar *forts.
+  159.53–161.30 For a while, Kerala's *pepper
+  161.30–163.13 ran *through Dutch hands.
+  164.33–165.91 Not *everything they did
+  165.91–167.23 was about *money.
+  167.23–168.83 Cochin's Dutch *governor,
+  168.83–170.57 Hendrik van *Rheede,
+  170.57–171.68 set out to *record
+  171.68–173.57 the useful *plants of Kerala.
+  173.57–174.56 His key *expert
+  174.56–176.26 was Itty *Achudan,
+  176.26–178.24 a local Ezhava *physician,
+  178.24–179.32 checked by *three
+  179.32–181.10 Konkani Brahmin *scholars.
+  181.10–183.84 The result, the *Hortus Malabaricus,
+  183.84–185.41 came out in *twelve volumes
+  185.41–187.32 from *1678,
+  187.32–189.53 with almost *800 engravings.
+  189.53–190.14 It is *one
+  190.14–190.99 of the *earliest
+  190.99–193.06 great books on *tropical plants,
+  193.06–194.99 built on Indian *knowledge.
+  196.19–198.00 Now, back to that *beach.
+  198.00–199.76 By the *1730s,
+  199.76–202.22 King Marthanda *Varma of Travancore
+  202.22–203.32 was *taking over
+  203.32–204.60 the *pepper coast,
+  204.60–206.00 and the Dutch sent *troops
+  206.00–206.93 to *stop him.
+  206.93–209.02 In August *1741,
+  209.02–210.40 at *Colachel,
+  210.40–211.70 the *story goes that
+  211.70–213.06 a Travancore *cannonball
+  213.06–213.99 set off a *Dutch
+  213.99–215.40 gunpowder *barrel,
+  215.40–216.22 their *rice supply
+  216.22–217.50 *went up with it,
+  217.50–219.46 and soon the Dutch *surrendered.
+  219.46–220.25 Local *fishermen
+  220.25–221.20 are *said to have
+  221.20–222.18 *helped too,
+  222.18–224.18 sinking Dutch *boats at night.
+  224.18–226.94 Their commander, Eustachius *De Lannoy,
+  226.94–228.29 was taken *prisoner,
+  228.29–229.76 and then *recruited.
+  229.76–231.59 He trained Travancore's *army
+  231.59–233.21 in *European drill
+  233.21–234.88 and rose to *command it.
+  234.88–236.05 *Twelve years later,
+  236.05–237.63 the Dutch *signed a treaty
+  237.63–238.65 promising *not
+  238.65–241.11 to stand in *Travancore's way.
+  242.31–244.15 In *Bengal, the Dutch made
+  244.15–245.37 one last *move.
+  245.37–246.46 After *Plassey,
+  246.46–247.71 Nawab Mir *Jafar
+  247.71–249.10 *secretly invited them in
+  249.10–251.01 to balance the *British,
+  251.01–252.98 and in *1759
+  252.98–253.78 a *Dutch fleet
+  253.78–255.34 sailed up the *Hooghly
+  255.34–257.98 carrying more than *1,500 soldiers.
+  257.98–258.77 The *British,
+  258.77–260.42 under Colonel Francis *Forde,
+  260.42–261.61 struck *first,
+  261.61–262.40 on the *river
+  262.40–263.43 and then on *land
+  263.43–264.49 near *Chinsurah.
+  264.49–266.02 Only *sixteen Europeans
+  266.02–268.03 got *through to the fort.
+  268.03–269.63 Then the British *replaced
+  269.63–270.38 Mir *Jafar
+  270.38–272.52 with his son-in-law, Mir *Kasim,
+  272.52–273.92 and tightened their *grip
+  273.92–274.91 on *Bengal.
+  276.11–278.23 After that, the Dutch *faded.
+  278.23–279.45 Their real *profits
+  279.45–281.17 were in *Indonesia,
+  281.17–284.21 and in *1795 British forces
+  284.21–285.76 took most of their *posts
+  285.76–286.58 in *India.
+  286.58–288.37 The company was *wound up
+  288.37–290.18 in *1799.
+  290.18–290.90 By a *treaty
+  290.90–293.29 with *Britain in 1824,
+  293.29–294.84 they gave up the *rest,
+  294.84–297.41 *handing it over in 1825.
+  297.41–298.64 They came to *India
+  298.64–300.56 for *trade, not empire,
+  300.56–300.77 and they *left
+  300.77–302.19 the same *way.
+  302.19–303.55 The one Dutch *commander
+  303.55–304.93 who *stayed behind
+  304.93–306.37 did it as a *soldier
+  306.37–309.91 of an Indian *king.
+CHECK OK

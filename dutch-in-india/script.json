@@ -1,0 +1,744 @@
+{
+ "title": "Traders, Not Rulers: The Dutch in India",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "lead": 0.5,
+ "outro": 2.0,
+ "gap": 0.25,
+ "music": "chapters",
+ "chapters": [
+  {
+   "id": "CH0",
+   "year": null,
+   "title": "Cold open"
+  },
+  {
+   "id": "CH1",
+   "year": "1596",
+   "title": "A Company That Could Go to War"
+  },
+  {
+   "id": "CH2",
+   "year": "1605",
+   "title": "The Cloth Coast"
+  },
+  {
+   "id": "CH3",
+   "year": "1623",
+   "title": "Trouble at Amboyna"
+  },
+  {
+   "id": "CH4",
+   "year": "1663",
+   "title": "Taking Portugal's Forts"
+  },
+  {
+   "id": "CH5",
+   "year": "1678",
+   "title": "The Garden of Malabar"
+  },
+  {
+   "id": "CH6",
+   "year": "1741",
+   "title": "The Battle of Colachel"
+  },
+  {
+   "id": "CH7",
+   "year": "1759",
+   "title": "Last Stand in Bengal"
+  },
+  {
+   "id": "CH8",
+   "year": "1825",
+   "title": "Exit, Quietly"
+  }
+ ],
+ "sources": [
+  "Rajiv Ahir, A Brief History of Modern India, ch. 3 'Advent of the Europeans in India', The Dutch (pp. 39-41): Houtman at Sumatra and Bantam 1596; 1602 amalgamation and powers (war, treaties, territory, fortresses); Masulipatnam 1605; Pulicat 1609; Nagapatam 1658, Cochin 1663; goods (indigo, silk, saltpetre from Bihar, opium and rice from the Ganga valley); Amboyna 1623. Book errors NOT used: Nagapatam 'near Madras', Dutch 'retired from India' in 1667, 1759 as 'retaliation' for 1672-74",
+  "R.C. Majumdar, H.C. Raychaudhuri, K. Datta, An Advanced History of India (as quoted in Ahir): Dutch aims = revenge on Spain/Portugal + spice monopoly",
+  "Wikipedia, Dutch East India Company (founded 20 March 1602; nationalised 1796, dissolved 31 December 1799); First Dutch Expedition (Houtman at Banten, June 1596)",
+  "Wikipedia, Dutch Coromandel (Masulipatnam 1605; Pulicat/Fort Geldria mint from 1615, 'Kas' copper coins; 'likely over 1,000 handlooms' at Pulicat; Nagapattinam 1658)",
+  "Wikipedia, Dutch India / Dutch Malabar (Cochin taken 1663; British occupation 1795; Anglo-Dutch Treaty 1824; transfers 1825)",
+  "Wikipedia, Amboyna massacre (9 March 1623: ten English, nine Japanese, one Portuguese executed after confessions under torture)",
+  "Wikipedia, Hortus Malabaricus (12 volumes from 1678, 794 engravings; Itty Achudan, Ezhava; three Konkani Brahmin physicians Ranga Bhat, Vinayaka Pandit, Appu Bhat)",
+  "Wikipedia, Battle of Colachel (10 August 1741; ~24 officers incl. De Lannoy captured); Eustachius De Lannoy (served Travancore 1741-1777, 'Valiya Kappithan'; gunpowder/rice episode described as tradition); Treaty of Mavelikkara 1753",
+  "Wikipedia, Battle of Chinsurah (24-25 November 1759; invited by Mir Jafar; fleet from Batavia with 1,500+ European and Malay troops; 'only sixteen Europeans successfully reached Chinsurah'); Mir Jafar replaced by Mir Kasim",
+  "Wikipedia, Dutch Bengal (occupied by British forces 1795)"
+ ],
+ "lines": [
+  {
+   "chapter": "CH0",
+   "text": "In seventeen forty-one, on a beach in southern India,",
+   "caps": "In *1741, on a beach | in southern *India,",
+   "shot": "Dusk beach, far stockade on the left; a white flag rises over it (no people)."
+  },
+  {
+   "chapter": "CH0",
+   "text": "a Dutch commander surrendered to an Indian king.",
+   "caps": "a Dutch *commander | surrendered to an Indian *king.",
+   "shot": "Two-shot: De Lannoy (Dutch coat) hands his sword to Marthanda Varma (gold crown, conch emblem)."
+  },
+  {
+   "chapter": "CH0",
+   "text": "Then he did something stranger:",
+   "caps": "Then he did something *stranger:",
+   "shot": "Push in on De Lannoy; a '?' slip pins on."
+  },
+  {
+   "chapter": "CH0",
+   "text": "he joined that king's army,",
+   "caps": "he *joined | that king's *army,",
+   "shot": "Same officer, coat now Travancore green; he lifts a sword in salute."
+  },
+  {
+   "chapter": "CH0",
+   "text": "and served it for the rest of his life.",
+   "caps": "and *served it | for the rest of his *life.",
+   "shot": "Slip ticks 1741 to 1777 over Udayagiri fort silhouette (gold ribbon '36 YEARS')."
+  },
+  {
+   "chapter": "CH0",
+   "text": "To see how he got there, we go back to Amsterdam,",
+   "caps": "To see *how | he got *there, | we go back to *Amsterdam,",
+   "shot": "Page turns: Amsterdam canal, gabled houses, lateral pan left to right."
+  },
+  {
+   "chapter": "CH0",
+   "text": "and a very new idea:",
+   "caps": "and a very new *idea:",
+   "shot": "A blank parchment share certificate floats down onto the canal page."
+  },
+  {
+   "chapter": "CH0",
+   "text": "a company that could go to war.",
+   "caps": "a *company | that could go to *war.",
+   "shot": "Title: gold ribbon '1596 to 1825', torn slip 'TRADERS, NOT RULERS', VOC seal stamps.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH1",
+   "text": "In fifteen ninety-six,",
+   "caps": "In *1596,",
+   "shot": "Gold ribbon 1596 drops onto a WIDE realMap of Europe to Indonesia."
+  },
+  {
+   "chapter": "CH1",
+   "text": "Cornelis de Howtman's ships reached Java,",
+   "caps": "Cornelis de *Houtman's | ships reached *Java,",
+   "shot": "Route draws Amsterdam to Cape to Java; Houtman figure (wide hat, ruff) inset left."
+  },
+  {
+   "chapter": "CH1",
+   "text": "and the Dutch had their own route to the spices.",
+   "caps": "and the *Dutch had | their *own route | to the *spices.",
+   "shot": "Ship arrives at the BANTAM pin; Moluccas glow at the far right."
+  },
+  {
+   "chapter": "CH1",
+   "text": "Back home, they were fighting Spain for independence,",
+   "caps": "*Back home, | they were *fighting Spain | for *independence,",
+   "shot": "Netherlands cut-out (tricolour) facing Spain (gold on crimson) across the map."
+  },
+  {
+   "chapter": "CH1",
+   "text": "and Spain now ruled Portugal too,",
+   "caps": "and *Spain now | ruled *Portugal too,",
+   "shot": "Spanish crown drops onto the Portuguese crown (royal-blue cross)."
+  },
+  {
+   "chapter": "CH1",
+   "text": "so hurting the Portuguese in Asia",
+   "caps": "so hurting the *Portuguese | in *Asia",
+   "shot": "Orange paper fist knocks a coin off the stacked crowns."
+  },
+  {
+   "chapter": "CH1",
+   "text": "was business and revenge at once.",
+   "caps": "was *business | and *revenge at once.",
+   "shot": "Ledger with two columns PROFIT / REVENGE, both ticked by a quill."
+  },
+  {
+   "chapter": "CH1",
+   "text": "In sixteen-oh-two, the Dutch government",
+   "caps": "In *1602, | the Dutch *government",
+   "shot": "Gold ribbon 1602 over the Amsterdam hall facade."
+  },
+  {
+   "chapter": "CH1",
+   "text": "merged its rival trading firms into one:",
+   "caps": "merged its rival trading *firms | *into one:",
+   "shot": "Six small company flags slide together across the wide frame."
+  },
+  {
+   "chapter": "CH1",
+   "text": "the Dutch East India Company.",
+   "caps": "the Dutch East India *Company.",
+   "shot": "They fuse into the gold VOC monogram seal (wax-seal thud)."
+  },
+  {
+   "chapter": "CH1",
+   "text": "Ordinary citizens could buy shares.",
+   "caps": "Ordinary *citizens | could buy *shares.",
+   "shot": "A queue of citizens; certificates with the VOC seal pass hand to hand."
+  },
+  {
+   "chapter": "CH1",
+   "text": "And it could do what few companies ever had:",
+   "caps": "And it *could do | what few companies *ever had:",
+   "shot": "VOC director (black coat, white ruff, ledger) opens the ledger."
+  },
+  {
+   "chapter": "CH1",
+   "text": "build forts, sign treaties,",
+   "caps": "build *forts, | sign *treaties,",
+   "shot": "Icons pop one per word: a fort, then a treaty scroll."
+  },
+  {
+   "chapter": "CH1",
+   "text": "mint coins, and wage war.",
+   "caps": "mint *coins, | and wage *war.",
+   "shot": "Then a coin and a cannon; the four icons line up.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH2",
+   "text": "Their first factory, on the Koro-man-del coast,",
+   "caps": "Their first *factory, | on the *Coromandel coast,",
+   "shot": "realMap wide on India; the Coromandel (east) coast highlights."
+  },
+  {
+   "chapter": "CH2",
+   "text": "opened at Mussoo-lee-putnam in sixteen-oh-five.",
+   "caps": "opened at *Masulipatnam in 1605.",
+   "shot": "Pin + slip MASULIPATNAM; factory cut-out pops up."
+  },
+  {
+   "chapter": "CH2",
+   "text": "Soon came Poo-lee-kat, north of Madras,",
+   "caps": "Soon came *Pulicat, | north of *Madras,",
+   "shot": "Pins slide south: PULICAT above MADRAS."
+  },
+  {
+   "chapter": "CH2",
+   "text": "where they built a fort and minted copper coins.",
+   "caps": "where they built a *fort | and minted copper *coins.",
+   "shot": "Pulicat fort; copper coins drop into a stack (coin clinks)."
+  },
+  {
+   "chapter": "CH2",
+   "text": "Poo-lee-kat alone may have had",
+   "caps": "*Pulicat alone may have had",
+   "shot": "Coromandel weaver at a handloom (handloom clack)."
+  },
+  {
+   "chapter": "CH2",
+   "text": "over a thousand handlooms working for them.",
+   "caps": "over a *thousand | *handlooms working for them.",
+   "shot": "Handlooms multiply in rows across the wide frame; slip '1,000+?'."
+  },
+  {
+   "chapter": "CH2",
+   "text": "But why India, if the Dutch wanted spices?",
+   "caps": "But why *India, | if the Dutch wanted *spices?",
+   "shot": "Question slip between a cloth bale (left) and a nutmeg (right)."
+  },
+  {
+   "chapter": "CH2",
+   "text": "Because the Spice Islands wanted Indian cloth.",
+   "caps": "Because the *Spice Islands | wanted Indian *cloth.",
+   "shot": "Map pans right to the Moluccas; cloth bolts land on the islands."
+  },
+  {
+   "chapter": "CH2",
+   "text": "So they ran a loop: buy cotton cloth in India,",
+   "caps": "So they ran a *loop: | buy cotton *cloth in India,",
+   "shot": "THE TRADE LOOP frame (India left, Spice Islands right, Amsterdam top); leg 1 draws India to Spice Islands with a cloth icon."
+  },
+  {
+   "chapter": "CH2",
+   "text": "trade it for nutmeg, cloves and pepper in Indonesia,",
+   "caps": "trade it for *nutmeg, | cloves and *pepper in Indonesia,",
+   "shot": "Leg 2 draws Spice Islands to Amsterdam, nutmeg/clove/pepper icons."
+  },
+  {
+   "chapter": "CH2",
+   "text": "and sell those in Europe.",
+   "caps": "and sell those in *Europe.",
+   "shot": "Leg 3 closes the triangle with coins; loop starts turning."
+  },
+  {
+   "chapter": "CH2",
+   "text": "Along the way they carried indigo, silk from Bengal,",
+   "caps": "Along the *way | they carried *indigo, | silk from *Bengal,",
+   "shot": "Loop speeds up; indigo vat and silk icons join as named."
+  },
+  {
+   "chapter": "CH2",
+   "text": "saltpetre from Bihar for gunpowder,",
+   "caps": "*saltpetre from Bihar | for *gunpowder,",
+   "shot": "Saltpetre sacks join the loop."
+  },
+  {
+   "chapter": "CH2",
+   "text": "and opium and rice from the Ganga valley.",
+   "caps": "and *opium and rice | from the Ganga *valley.",
+   "shot": "Opium and rice icons join; loop at full speed.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH3",
+   "text": "The English wanted the same spices,",
+   "caps": "The *English wanted | the same *spices,",
+   "shot": "Two-shot: Dutch and English ships side by side on paper waves."
+  },
+  {
+   "chapter": "CH3",
+   "text": "and the rivalry turned ugly.",
+   "caps": "and the rivalry turned *ugly.",
+   "shot": "Sails nudge; the two ships bump (no fighting)."
+  },
+  {
+   "chapter": "CH3",
+   "text": "In sixteen twenty-three, on the island of Am-boy-na,",
+   "caps": "In *1623, | on the island of *Amboyna,",
+   "shot": "Night: Amboyna fort silhouette under the navy wash; pin AMBOYNA."
+  },
+  {
+   "chapter": "CH3",
+   "text": "the Dutch accused English traders",
+   "caps": "the Dutch *accused English traders",
+   "shot": "Letter with a broken seal under the navy wash."
+  },
+  {
+   "chapter": "CH3",
+   "text": "of plotting to seize their fort.",
+   "caps": "of *plotting | to *seize their fort.",
+   "shot": "Slip 'PLOT?' pins on the letter."
+  },
+  {
+   "chapter": "CH3",
+   "text": "After confessions taken under torture,",
+   "caps": "After *confessions | taken under *torture,",
+   "shot": "A closed door at night; one candle on a table."
+  },
+  {
+   "chapter": "CH3",
+   "text": "they executed ten Englishmen,",
+   "caps": "they executed *ten Englishmen,",
+   "shot": "Ledger page of names under the navy wash; ten lines ink in."
+  },
+  {
+   "chapter": "CH3",
+   "text": "nine Japanese soldiers",
+   "caps": "*nine Japanese soldiers",
+   "shot": "Japanese soldier standing guard (far, dim); more names ink in."
+  },
+  {
+   "chapter": "CH3",
+   "text": "and one Portuguese man.",
+   "caps": "and *one Portuguese man.",
+   "shot": "Names reach twenty; the candle goes out."
+  },
+  {
+   "chapter": "CH3",
+   "text": "It ended any hope of the two companies working together.",
+   "caps": "It ended any *hope | of the two *companies | working *together.",
+   "shot": "A paper handshake tears in two."
+  },
+  {
+   "chapter": "CH3",
+   "text": "The Dutch kept the Spice Islands,",
+   "caps": "The *Dutch kept | the Spice *Islands,",
+   "shot": "Map: Dutch flags fill the Moluccas."
+  },
+  {
+   "chapter": "CH3",
+   "text": "and the English turned more and more to India.",
+   "caps": "and the *English | *turned more and more | to *India.",
+   "shot": "An English ship turns left toward India across the wide map.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH4",
+   "text": "Meanwhile, they went after their old enemy.",
+   "caps": "*Meanwhile, they went after | their old *enemy.",
+   "shot": "Map: Portuguese flags (white, royal-blue cross) on Indian coastal forts."
+  },
+  {
+   "chapter": "CH4",
+   "text": "As R. C. Mo-joom-daar and his co-authors put it,",
+   "caps": "As R.C. *Majumdar | and his *co-authors put it,",
+   "shot": "An open history book page with an attribution slip (no quote marks on screen)."
+  },
+  {
+   "chapter": "CH4",
+   "text": "the Dutch had two aims in the East:",
+   "caps": "the Dutch had *two aims | in the *East:",
+   "shot": "Two blank target slips pin onto the map."
+  },
+  {
+   "chapter": "CH4",
+   "text": "revenge on Spain and Portugal,",
+   "caps": "*revenge on Spain and Portugal,",
+   "shot": "First slip fills: REVENGE."
+  },
+  {
+   "chapter": "CH4",
+   "text": "and a monopoly of the spice trade.",
+   "caps": "and a *monopoly | of the *spice trade.",
+   "shot": "Second slip fills: MONOPOLY."
+  },
+  {
+   "chapter": "CH4",
+   "text": "In sixteen fifty-eight",
+   "caps": "In *1658",
+   "shot": "Gold ribbon 1658 over the south-east coast."
+  },
+  {
+   "chapter": "CH4",
+   "text": "they took Naaga-putti-num from the Portuguese,",
+   "caps": "they took *Nagapattinam | from the *Portuguese,",
+   "shot": "Pin NAGAPATTINAM; its flag swaps Portuguese to Dutch."
+  },
+  {
+   "chapter": "CH4",
+   "text": "far down the Koro-man-del coast.",
+   "caps": "far *down the Coromandel coast.",
+   "shot": "Camera pans down the coast from Pulicat/Madras to Nagapattinam."
+  },
+  {
+   "chapter": "CH4",
+   "text": "In sixteen sixty-three they took Cochin,",
+   "caps": "In *1663 | they took *Cochin,",
+   "shot": "Cochin harbour; the fort flag swaps to the Dutch tricolour."
+  },
+  {
+   "chapter": "CH4",
+   "text": "and with it, Portugal's last Mala-bar forts.",
+   "caps": "and with it, *Portugal's last | Malabar *forts.",
+   "shot": "Map: each Malabar fort flips in a ripple along the coast."
+  },
+  {
+   "chapter": "CH4",
+   "text": "For a while, Kerala's pepper ran through Dutch hands.",
+   "caps": "For a while, Kerala's *pepper | ran *through Dutch hands.",
+   "shot": "Pepper sacks stamped VOC roll onto a ship.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH5",
+   "text": "Not everything they did was about money.",
+   "caps": "Not *everything they did | was about *money.",
+   "shot": "Coins slide off; a green leaf drifts in."
+  },
+  {
+   "chapter": "CH5",
+   "text": "Cochin's Dutch governor, Hendrik van Ray-duh,",
+   "caps": "Cochin's Dutch *governor, | Hendrik van *Rheede,",
+   "shot": "Van Rheede (long wig, governor's sash) in a Cochin garden, lateral pan."
+  },
+  {
+   "chapter": "CH5",
+   "text": "set out to record the useful plants of Kerala.",
+   "caps": "set out to *record | the useful *plants of Kerala.",
+   "shot": "A quill sketches a leaf on parchment."
+  },
+  {
+   "chapter": "CH5",
+   "text": "His key expert was Itty Ah-choo-dun,",
+   "caps": "His key *expert | was Itty *Achudan,",
+   "shot": "Itty Achudan (white mundu) reads a palm-leaf manuscript."
+  },
+  {
+   "chapter": "CH5",
+   "text": "a local Eezha-va physician,",
+   "caps": "a local Ezhava *physician,",
+   "shot": "Herbs sketch themselves in ink beside him."
+  },
+  {
+   "chapter": "CH5",
+   "text": "checked by three Kon-kunee Brahmin scholars.",
+   "caps": "checked by *three | Konkani Brahmin *scholars.",
+   "shot": "Three scholars nod over a page."
+  },
+  {
+   "chapter": "CH5",
+   "text": "The result, the Hortus Mala-barry-kus,",
+   "caps": "The result, the *Hortus Malabaricus,",
+   "shot": "A bound volume lands, title on a slip."
+  },
+  {
+   "chapter": "CH5",
+   "text": "came out in twelve volumes from sixteen seventy-eight,",
+   "caps": "came out in *twelve volumes | from *1678,",
+   "shot": "Twelve volumes stack up; gold ribbon 1678."
+  },
+  {
+   "chapter": "CH5",
+   "text": "with almost eight hundred engravings.",
+   "caps": "with almost *800 engravings.",
+   "shot": "Plates fan out across the wide frame."
+  },
+  {
+   "chapter": "CH5",
+   "text": "It is one of the earliest great books on tropical plants,",
+   "caps": "It is *one | of the *earliest | great books on *tropical plants,",
+   "shot": "An engraving page fills the frame; a coconut palm draws line by line."
+  },
+  {
+   "chapter": "CH5",
+   "text": "built on Indian knowledge.",
+   "caps": "built on Indian *knowledge.",
+   "shot": "Slip 'INDIAN KNOWLEDGE' pins on the plate.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH6",
+   "text": "Now, back to that beach.",
+   "caps": "Now, back to that *beach.",
+   "shot": "The dusk beach from the cold open returns."
+  },
+  {
+   "chapter": "CH6",
+   "text": "By the seventeen-thirties,",
+   "caps": "By the *1730s,",
+   "shot": "Map: the south-west coast, Travancore pin."
+  },
+  {
+   "chapter": "CH6",
+   "text": "King Maar-thaanda Varma of Travan-kor",
+   "caps": "King Marthanda *Varma of Travancore",
+   "shot": "Marthanda Varma (gold crown, conch emblem on forest green) standing."
+  },
+  {
+   "chapter": "CH6",
+   "text": "was taking over the pepper coast,",
+   "caps": "was *taking over | the *pepper coast,",
+   "shot": "Map: Travancore's forest-green fill creeps along the south-west coast."
+  },
+  {
+   "chapter": "CH6",
+   "text": "and the Dutch sent troops to stop him.",
+   "caps": "and the Dutch sent *troops | to *stop him.",
+   "shot": "VOC ships arrive off the coast (pan right to left)."
+  },
+  {
+   "chapter": "CH6",
+   "text": "In August seventeen forty-one, at Ko-la-chel,",
+   "caps": "In August *1741, | at *Colachel,",
+   "shot": "Colachel beach and the Dutch stockade, wide."
+  },
+  {
+   "chapter": "CH6",
+   "text": "the story goes that a Travan-kor cannonball",
+   "caps": "the *story goes that | a Travancore *cannonball",
+   "shot": "One crimson dashed arc crosses the sky toward the far stockade (distant muffled cannon)."
+  },
+  {
+   "chapter": "CH6",
+   "text": "set off a Dutch gunpowder barrel,",
+   "caps": "set off a *Dutch | gunpowder *barrel,",
+   "shot": "Far flash and a smoke column from the stockade (soft far boom; no people)."
+  },
+  {
+   "chapter": "CH6",
+   "text": "their rice supply went up with it,",
+   "caps": "their *rice supply | *went up with it,",
+   "shot": "Rice sacks scorched at the edges."
+  },
+  {
+   "chapter": "CH6",
+   "text": "and soon the Dutch surrendered.",
+   "caps": "and soon the Dutch *surrendered.",
+   "shot": "White flag rises over the stockade."
+  },
+  {
+   "chapter": "CH6",
+   "text": "Local fishermen are said to have helped too,",
+   "caps": "Local *fishermen | are *said to have | *helped too,",
+   "shot": "Night: small fishing boats glide under the navy wash."
+  },
+  {
+   "chapter": "CH6",
+   "text": "sinking Dutch boats at night.",
+   "caps": "sinking Dutch *boats at night.",
+   "shot": "Empty Dutch boats tip and slip under paper waves."
+  },
+  {
+   "chapter": "CH6",
+   "text": "Their commander, Yoo-stah-kee-us De Lan-wah,",
+   "caps": "Their commander, Eustachius *De Lannoy,",
+   "shot": "The cold-open two-shot again: the sword handover, now explained."
+  },
+  {
+   "chapter": "CH6",
+   "text": "was taken prisoner, and then recruited.",
+   "caps": "was taken *prisoner, | and then *recruited.",
+   "shot": "His coat swaps from Dutch blue to Travancore green."
+  },
+  {
+   "chapter": "CH6",
+   "text": "He trained Travan-kor's army in European drill",
+   "caps": "He trained Travancore's *army | in *European drill",
+   "shot": "De Lannoy drills ranks of Travancore soldiers (lateral pan)."
+  },
+  {
+   "chapter": "CH6",
+   "text": "and rose to command it.",
+   "caps": "and rose to *command it.",
+   "shot": "Slip 'VALIYA KAPPITHAN: THE GREAT CAPTAIN' pins on."
+  },
+  {
+   "chapter": "CH6",
+   "text": "Twelve years later, the Dutch signed a treaty",
+   "caps": "*Twelve years later, | the Dutch *signed a treaty",
+   "shot": "Treaty scroll unrolls; gold ribbon 1753."
+  },
+  {
+   "chapter": "CH6",
+   "text": "promising not to stand in Travan-kor's way.",
+   "caps": "promising *not | to stand in *Travancore's way.",
+   "shot": "Two wax seals stamp on (VOC gold, Travancore conch).",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH7",
+   "text": "In Bengal, the Dutch made one last move.",
+   "caps": "In *Bengal, the Dutch made | one last *move.",
+   "shot": "Map: Bengal; pins CHINSURA on the Hooghly above Calcutta, PLASSEY."
+  },
+  {
+   "chapter": "CH7",
+   "text": "After Plassey, Nawab Meer Jaa-far",
+   "caps": "After *Plassey, | Nawab Mir *Jafar",
+   "shot": "Mir Jafar (Nawab turban, deep green and gold) on a cushion throne."
+  },
+  {
+   "chapter": "CH7",
+   "text": "secretly invited them in to balance the British,",
+   "caps": "*secretly invited them in | to balance the *British,",
+   "shot": "He slips a sealed letter to a Dutch envoy."
+  },
+  {
+   "chapter": "CH7",
+   "text": "and in seventeen fifty-nine",
+   "caps": "and in *1759",
+   "shot": "Gold ribbon 1759; river mouth from above."
+  },
+  {
+   "chapter": "CH7",
+   "text": "a Dutch fleet sailed up the Hoog-lee",
+   "caps": "a *Dutch fleet | sailed up the *Hooghly",
+   "shot": "Wide river pan: Dutch ships sail in from Batavia, right to left."
+  },
+  {
+   "chapter": "CH7",
+   "text": "carrying more than fifteen hundred soldiers.",
+   "caps": "carrying more than *1,500 soldiers.",
+   "shot": "Slip '1,500+ (European and Malay)' over the masts."
+  },
+  {
+   "chapter": "CH7",
+   "text": "The British, under Colonel Francis Forde, struck first,",
+   "caps": "The *British, | under Colonel Francis *Forde, | struck *first,",
+   "shot": "Forde (red coat) on the bank; redcoat silhouettes in a line."
+  },
+  {
+   "chapter": "CH7",
+   "text": "on the river and then on land near Chin-soo-ra.",
+   "caps": "on the *river | and then on *land | near *Chinsurah.",
+   "shot": "Dutch masts lower one by one on the river."
+  },
+  {
+   "chapter": "CH7",
+   "text": "Only sixteen Europeans got through to the fort.",
+   "caps": "Only *sixteen Europeans | got *through to the fort.",
+   "shot": "Counter slip counts down to '16 EUROPEANS' at the fort gate."
+  },
+  {
+   "chapter": "CH7",
+   "text": "Then the British replaced Meer Jaa-far",
+   "caps": "Then the British *replaced | Mir *Jafar",
+   "shot": "The throne cushion: Mir Jafar's turban lifts away."
+  },
+  {
+   "chapter": "CH7",
+   "text": "with his son-in-law, Meer Kaa-sim,",
+   "caps": "with his son-in-law, Mir *Kasim,",
+   "shot": "A second turban settles on the cushion."
+  },
+  {
+   "chapter": "CH7",
+   "text": "and tightened their grip on Bengal.",
+   "caps": "and tightened their *grip | on *Bengal.",
+   "shot": "Map: British crimson tint spreads over Bengal.",
+   "gap": 1.6
+  },
+  {
+   "chapter": "CH8",
+   "text": "After that, the Dutch faded.",
+   "caps": "After that, the Dutch *faded.",
+   "shot": "Wide map, India left, Indonesia right; Dutch pins in India dim."
+  },
+  {
+   "chapter": "CH8",
+   "text": "Their real profits were in Indonesia,",
+   "caps": "Their real *profits | were in *Indonesia,",
+   "shot": "The Indonesian side glows gold."
+  },
+  {
+   "chapter": "CH8",
+   "text": "and in seventeen ninety-five British forces",
+   "caps": "and in *1795 British forces",
+   "shot": "India pins flip to British one by one (crimson cross on white)."
+  },
+  {
+   "chapter": "CH8",
+   "text": "took most of their posts in India.",
+   "caps": "took most of their *posts | in *India.",
+   "shot": "Last flips: Cochin, Chinsura; ribbon 1795."
+  },
+  {
+   "chapter": "CH8",
+   "text": "The company was wound up in seventeen ninety-nine.",
+   "caps": "The company was *wound up | in *1799.",
+   "shot": "The gold VOC seal fills the frame, then cracks in two."
+  },
+  {
+   "chapter": "CH8",
+   "text": "By a treaty with Britain in eighteen twenty-four,",
+   "caps": "By a *treaty | with *Britain in 1824,",
+   "shot": "Treaty scroll, two seals; ribbon 1824."
+  },
+  {
+   "chapter": "CH8",
+   "text": "they gave up the rest, handing it over in eighteen twenty-five.",
+   "caps": "they gave up the *rest, | *handing it over in 1825.",
+   "shot": "2 shots: remaining pins flip; then on 'handing' the trade loop un-draws and the era bar lands on 1825."
+  },
+  {
+   "chapter": "CH8",
+   "text": "They came to India for trade, not empire,",
+   "caps": "They came to *India | for *trade, not empire,",
+   "shot": "A VOC ship turns to leave (keep bottom-right clear from here)."
+  },
+  {
+   "chapter": "CH8",
+   "text": "and they left the same way.",
+   "caps": "and they *left | the same *way.",
+   "shot": "The ship sails off right."
+  },
+  {
+   "chapter": "CH8",
+   "text": "The one Dutch commander who stayed behind",
+   "caps": "The one Dutch *commander | who *stayed behind",
+   "shot": "Dusk beach: De Lannoy in Travancore green watches the ship go."
+  },
+  {
+   "chapter": "CH8",
+   "text": "did it as a soldier of an Indian king.",
+   "caps": "did it as a *soldier | of an Indian *king.",
+   "shot": "End card: title slip + ribbon top-left; bottom-right 420x260 empty."
+  }
+ ]
+}

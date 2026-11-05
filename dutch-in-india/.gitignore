@@ -1,0 +1,8 @@
+renders/pilot_*.mp4
+renders/draft_*.mp4
+review/key/
+review/card*/
+data/mix.wav
+renders/dutch-in-india.mp4
+review/*.log
+review/short_test.*
