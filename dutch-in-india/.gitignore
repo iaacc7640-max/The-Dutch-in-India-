@@ -4,3 +4,4 @@ review/key/
 review/card*/
 data/mix.wav
 renders/dutch-in-india.mp4
+review/*.log
