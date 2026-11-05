@@ -37,6 +37,14 @@ export const PAGES = {
     A.tornSlip('A Company That Could Go to War', 1250, 960, 0.6, 64);
   },
   card() { K.parchment(5); A.chapterCard(+(new URLSearchParams(location.search).get('ct') || 1.2), 1741, 'The Battle of Colachel'); },
+  thumb() {   // YouTube thumbnail: wide map + VOC ship + 1741 ribbon + Marthanda Varma
+    const v = A.view(96, 8, 17); A.realMap(v, { seed: 7 }); ctx.save(); ctx.globalAlpha = 0.2; ctx.fillStyle = P.parch; ctx.fillRect(0, 0, W, H); ctx.restore();
+    A.route(v, [[128.5, -3], [100, -4], [80.3, 8], [77.26, 8.17]], 1, 0);
+    A.indiaman(1180, 700, 0.6, -0.04, 0.4);
+    A.person({ x: 460, y: 1010, h: 780, who: 'varma', dir: 1, arm: 35 });
+    K.ribbon('1741', 1330, 175, 1, 115);
+    A.tornSlip('TRADERS, NOT RULERS', 1300, 900, 1, 92);
+  },
   maps() {
     const v = A.VIEWS.wide; A.realMap(v);
     for (const [k, t, o] of [['amsterdam', 'AMSTERDAM'], ['bantam', 'BANTAM'], ['masulipatnam', 'MASULIPATNAM', { dx: 80 }], ['pulicat', 'PULICAT', { dx: 70, dy: -40 }], ['nagapattinam', 'NAGAPATTINAM', { dx: 90, dy: 10 }], ['cochin', 'COCHIN', { dx: -70, dy: 0 }], ['colachel', 'COLACHEL', { dx: -40, dy: 40 }], ['surat', 'SURAT', { dx: -50 }], ['chinsura', 'CHINSURA', { dy: -50 }], ['batavia', 'BATAVIA', { dy: 50 }], ['amboyna', 'AMBOYNA']]) A.pin(v, A.PL[k], t, 1, o || {});
